@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/05/31 17:08:13 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/01 15:29:43 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdlib.h>
 # include <stdio.h>
-
+# include <unistd.h>
 
 typedef struct s_custo
 {
@@ -51,14 +51,19 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	ra(t_stack **stack_a);
 void	rb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
-void	sa(t_stack *pilha_a);
-void	sb(t_stack *pilha_b);
-void	ss(t_stack *pilha_a, t_stack *pilha_b);
+void	sa(t_stack *stack_a);
+void	sb(t_stack *stack_b);
+void	ss(t_stack *stack_a, t_stack *stack_b);
 
 /*--------sort-------*/
 
 void	sort_3(t_stack **stack_a);
 void	sort_5(t_stack **stack_a, t_stack **stack_b);
 void	sort_big(t_stack **stack_a, t_stack **stack_b);
+
+/*-------stack--------*/
+
+t_stack **stackar(int ac, char **av);
+
 
 #endif

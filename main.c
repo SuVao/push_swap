@@ -6,13 +6,13 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:24:42 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/05/31 17:08:24 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/01 12:45:09 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int main(int ac, char **av)
+/* int main(int ac, char **av)
 {
 	if (ac == 4)
 		return (sort_3);
@@ -22,4 +22,9 @@ int main(int ac, char **av)
 		return (sort_big);
 	else
 		return (0);
+} */
+
+int main(int ac, char **av)
+{
+	
 }
