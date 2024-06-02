@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:46:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/01 16:04:10 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/02 13:07:32 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,35 +54,77 @@ t_stack **stackar(int ac, char **av)
 	return (new);
 }
 
+int	maior(t_stack **stack)
+{
+	int i;
+	int	maior;
+	
+	i = 1;
+	maior = 0;
+	while (stack[i] != NULL)
+	{
+		if (stack[i]->nbr > maior)
+			maior = stack[i]->nbr;
+		printf("maior1: %d \n", maior);
+		i++;
+	}
+	return (maior);
+}
+
+int	menor(t_stack **stack)
+{
+	int	i;
+	int	menor;
+
+	i = 1;
+	menor = stack[1]->nbr;
+	while (stack[i])
+	{
+		if (stack[i]->nbr < menor)
+			menor = stack[i]->nbr;
+		i++;
+	}
+	return (menor);
+}
+
+int	check_nbr(t_stack **stack)
+{
+	int i;
+	int	j;
+
+	i = 1;
+	j = 1;
+	
+	while (stack[i])
+	{
+		while (stack[j])
+		{
+			if (stack[i] == stack[j])
+			{
+				printf("aqui a numero repetido!\n");
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
 /* 
 int main(int ac, char **av)
 {
 	t_stack	**new;
-	int i = 1;static int stack_size(t_stack *stack_a)
-{
-	int i;
-
-	
-	if (!stack_a)
-		return (0);
-	i = 0;
-	while (stack_a != NULL)
-	{
-		stack_a = stack_a->next;
-		i++;
-	}
-	return (i);
-}
-
+	int i = 1;
 	if (ac >= 2)
 	{
 		new = stackar(ac - 1, av);
+		check_nbr(new);
 		while (new[i])
 		{
 			printf("valor: %d index: %d \n", new[i]->nbr, new[i]->index);
 			i++;
 		}
-		printf("tamanho da lista: %d \n", stack_size(new));
+		
 	}
 	else
 		write(1, "\n", 1);
