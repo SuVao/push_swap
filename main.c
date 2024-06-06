@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:24:42 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/01 12:45:09 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/06 17:50:12 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,29 @@
 
 int main(int ac, char **av)
 {
-	
+	t_stack	*a;
+	t_stack	*b;
+
+	a = NULL;
+	b = NULL;
+	if (ac == 1 || (ac == 2 && !av[1][0]))
+		return (-1);
+	else if (ac == 2)
+		a = stackar(ac, ft_split(av[1]));
+	else
+		a = stackar(ac, **av);
+	check(&a);
+	if (!s_sorted(a))
+	{
+		if (stack_size(a) == 2)
+			sa(&a);
+		else if (stack_size(a) == 3)
+			sort_3(&a);
+		else if (stack_size(a) == 5)
+			sort_5(&a, &b);
+		else
+			sort_big(&a, &b);
+	}
+	free_stack(&a);
+	return (0);
 }

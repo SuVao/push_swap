@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/01 15:29:43 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/06 18:01:51 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,9 @@ void	sort_big(t_stack **stack_a, t_stack **stack_b);
 
 /*-------stack--------*/
 
-t_stack **stackar(int ac, char **av);
-
+t_stack	**stackar(int ac, char **av);
+int		check_nbr(t_stack **stack, int ac);
+int		menor(t_stack **stack);
+int		maior(t_stack **stack);
 
 #endif

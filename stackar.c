@@ -6,11 +6,12 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:46:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/02 13:07:32 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/06 18:04:45 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
 
 static int ft_atoi(char *n)
 {
@@ -43,14 +44,24 @@ t_stack **stackar(int ac, char **av)
 	t_stack **new;
 
 	i = 0;
-	new = malloc(sizeof(t_stack *) * (ac - 1));
-	while (av[i] != NULL)
+	new = malloc(sizeof(t_stack *) * (ac));
+	if (!new)
+		return (NULL);
+	while (i < ac)
 	{
 		new[i] = malloc(sizeof(t_stack));
-		new[i]->nbr = ft_atoi(av[i]);
+		if (!new[i])
+		{
+			while (i > 0)
+				free(new[--i]);
+			free(new);
+			return (NULL);
+		}
+		new[i]->nbr = ft_atoi(av[i + 1]);
 		new[i]->index = i;
 		i++;
 	}
+	new[i] = NULL;
 	return (new);
 }
 
@@ -65,7 +76,6 @@ int	maior(t_stack **stack)
 	{
 		if (stack[i]->nbr > maior)
 			maior = stack[i]->nbr;
-		printf("maior1: %d \n", maior);
 		i++;
 	}
 	return (maior);
@@ -87,21 +97,27 @@ int	menor(t_stack **stack)
 	return (menor);
 }
 
-int	check_nbr(t_stack **stack)
+int	check_nbr(t_stack **stack, int ac)
 {
 	int i;
 	int	j;
+	int k;
 
-	i = 1;
+	i = 0;
 	j = 1;
-	
-	while (stack[i])
+	k = 0;
+	while (stack[i + 1] != NULL)
 	{
+		j = i + 1;
 		while (stack[j])
 		{
-			if (stack[i] == stack[j])
+			if (stack[i]->nbr == stack[j]->nbr)
 			{
+				while (k < ac)
+					free(stack[k++]);
+				free(stack);
 				printf("aqui a numero repetido!\n");
+				exit(EXIT_FAILURE);
 				return (0);
 			}
 			j++;
@@ -110,21 +126,23 @@ int	check_nbr(t_stack **stack)
 	}
 	return (1);
 }
-/* 
-int main(int ac, char **av)
+
+/* int main(int ac, char **av)
 {
 	t_stack	**new;
-	int i = 1;
+	int i = 0;
 	if (ac >= 2)
 	{
 		new = stackar(ac - 1, av);
-		check_nbr(new);
+		if (!check_nbr(new, ac))
+			return (0);
 		while (new[i])
 		{
 			printf("valor: %d index: %d \n", new[i]->nbr, new[i]->index);
+			free (new[i]);
 			i++;
 		}
-		
+		free(new);
 	}
 	else
 		write(1, "\n", 1);
