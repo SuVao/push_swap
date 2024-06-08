@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/06 18:01:51 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/08 14:17:21 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,28 +17,11 @@
 # include <stdio.h>
 # include <unistd.h>
 
-typedef struct s_custo
-{
-	int	sa;
-	int	sb;
-	int	ss;
-	int	pa;
-	int	pb;
-	int	ra;
-	int rb;
-	int rr;
-	int	rra;
-	int	rrb;
-	int	rrr;
-}	t_custo;
-
 typedef	struct s_stack
 {
 	int				nbr;
 	int				index;
-	struct s_stack	*anterior;
 	struct s_stack	*next;
-	t_custo			*cost;
 }				t_stack;
 
 /*--------acoes-------*/
@@ -51,9 +34,9 @@ void	rrr(t_stack **stack_a, t_stack **stack_b);
 void	ra(t_stack **stack_a);
 void	rb(t_stack **stack_b);
 void	rr(t_stack **stack_a, t_stack **stack_b);
-void	sa(t_stack *stack_a);
-void	sb(t_stack *stack_b);
-void	ss(t_stack *stack_a, t_stack *stack_b);
+void	sa(t_stack **stack_a);
+void	sb(t_stack **stack_b);
+void	ss(t_stack **stack_a, t_stack **stack_b);
 
 /*--------sort-------*/
 
@@ -67,5 +50,12 @@ t_stack	**stackar(int ac, char **av);
 int		check_nbr(t_stack **stack, int ac);
 int		menor(t_stack **stack);
 int		maior(t_stack **stack);
+
+char	**ft_split(char *s);
+int	s_sorted(t_stack **stack);
+void free_stack(t_stack **stack_a);
+int	stack_size(t_stack **stack);
+t_stack	**stackar_normal(int ac, char **av);
+t_stack	**stackar_split(int ac, char **av);
 
 #endif

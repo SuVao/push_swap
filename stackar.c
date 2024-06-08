@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:46:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/06 18:04:45 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/08 14:38:54 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ static int ft_atoi(char *n)
 	return (res * sign);
 }
 
-t_stack **stackar(int ac, char **av)
+t_stack **stackar_split(int ac, char **av)
 {
 	int i;
 	t_stack **new;
@@ -47,7 +47,7 @@ t_stack **stackar(int ac, char **av)
 	new = malloc(sizeof(t_stack *) * (ac));
 	if (!new)
 		return (NULL);
-	while (i < ac)
+	while (i <= ac)
 	{
 		new[i] = malloc(sizeof(t_stack));
 		if (!new[i])
@@ -57,12 +57,41 @@ t_stack **stackar(int ac, char **av)
 			free(new);
 			return (NULL);
 		}
+		new[i]->nbr = ft_atoi(av[i]);
+		new[i]->index = i;
+		i++;
+	}
+	new[i] = NULL;
+	return (new);
+}
+
+t_stack	**stackar_normal(int ac, char **av)
+{
+	int i;
+	t_stack	**new;
+	
+	i = 0;
+	new = malloc(sizeof(t_stack *) * ac);
+	if (!new)
+		return (NULL);
+	while (i < ac)
+	{
+		/* while (*av)
+			printf("%s\n", *av++); */
+		new[i] = malloc(sizeof(t_stack));
+		if (!new[i])
+		{
+			while (i > 0)
+				free (new[--i]);
+			free(new);
+		}
 		new[i]->nbr = ft_atoi(av[i + 1]);
 		new[i]->index = i;
 		i++;
 	}
 	new[i] = NULL;
 	return (new);
+	
 }
 
 int	maior(t_stack **stack)
@@ -127,6 +156,16 @@ int	check_nbr(t_stack **stack, int ac)
 	return (1);
 }
 
+int	stack_size(t_stack **stack)
+{
+	int	i;
+
+	i = 0;
+	while (stack[i])
+		i++;
+	return (i);
+}
+
 /* int main(int ac, char **av)
 {
 	t_stack	**new;
@@ -147,4 +186,20 @@ int	check_nbr(t_stack **stack, int ac)
 	else
 		write(1, "\n", 1);
 	return (0);
+} */
+
+/* int main(int ac, char **av)
+{
+	t_stack	**new;
+	int i = 0;
+	if (ac >=2)
+	{
+		new = stackar_normal(ac - 1, av);
+		while (new[i])
+		{
+			printf("%d\n", new[i]->nbr);
+			free(new[i++]);
+		}
+		free(new);
+	}
 } */

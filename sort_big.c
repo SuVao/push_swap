@@ -6,13 +6,13 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:05:46 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/06 14:59:52 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/08 13:36:46 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int stack_size(t_stack **stack_a)
+/* int stack_size(t_stack **stack_a)
 {
 	int i;
 	
@@ -26,7 +26,7 @@ int stack_size(t_stack **stack_a)
 	}
 	return (i - 1);
 }
-
+ */
 /* void	sort_big(t_stack **stack_a, t_stack **stack_b)
 {
 	int		*array;
@@ -53,7 +53,7 @@ int stack_size(t_stack **stack_a)
 	free(array);
 } */
 
-void	big_sort(int ac, char **av)
+/* void	big_sort(int ac, char **av)
 {
 	int	i;
 	t_stack	**stack_a;
@@ -65,4 +65,4 @@ void	big_sort(int ac, char **av)
 	if (!stack_b)
 		return(NULL);
 	
-}
+} */
