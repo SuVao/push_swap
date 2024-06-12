@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:50:39 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/08 13:51:17 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/12 13:07:14 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,17 +86,25 @@ char	**ft_split(char *s)
 
 /* int main(int ac, char **av)
 {
-	if (ac == 2)
+	if (ac >= 2)
 	{
-		int i = 0;
-		char **mat;
-		mat = ft_split(av[1]);
-		while (mat[i])
+		int j = 0;
+		while (j < ac)
 		{
-			printf("%s \n", mat[i]);
-			free(mat[i++]);
+			while (*++av != NULL)
+			{
+				int i = 0;
+				char **mat;
+				mat = ft_split(av[i]);
+				while (mat[i] != NULL)
+				{
+					printf("%s \n", mat[i]);
+					free(mat[i++]);
+				}
+				free(mat);
+			}
+			j++;
 		}
-		free(mat);
 	}
 	write(1, "\n", 1);
 } */

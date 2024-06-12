@@ -6,13 +6,13 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:07:00 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/05/31 17:07:22 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/12 14:33:35 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort_5(t_stack **stack_a, t_stack **stack_b)
+void	sort_5(t_stack *stack_a, t_stack *stack_b)
 {
 	int		a;
 	int		b;
@@ -20,11 +20,11 @@ void	sort_5(t_stack **stack_a, t_stack **stack_b)
 	int		d;
 	int		e;
 
-	a = (*stack_a)->nbr;
-	b = (*stack_a)->next->nbr;
-	c = (*stack_a)->next->next->nbr;
-	d = (*stack_a)->next->next->next->nbr;
-	e = (*stack_a)->next->next->next->next->nbr;
+	a = stack_a->nbr;
+	b = stack_a->next->nbr;
+	c = stack_a->next->next->nbr;
+	d = stack_a->next->next->next->nbr;
+	e = stack_a->next->next->next->next->nbr;
 	if (a > b && b < c && a < c)
 		sa(stack_a);
 	else if (a > b && b > c && a > c)

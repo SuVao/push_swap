@@ -6,27 +6,52 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:58:21 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/08 13:12:23 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/12 16:09:58 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* int	check(t_stack **stack_a)
+int	is_sorted(t_stack *a)
 {
-	
-} */
+	t_stack	*tmp;
 
-int	s_sorted(t_stack **stack)
-{
-	int	i;
-
-	i = (*stack)->nbr;
-	while ((*stack)->next != NULL)
+	tmp = a;
+	while (tmp && tmp->next)
 	{
-		if ((*stack)->nbr < (*stack)->next->nbr)
+		if (tmp->nbr > tmp->next->nbr)
 			return (0);
-		(*stack) = (*stack)->next;
+		tmp = tmp->next;
 	}
 	return (1);
+}
+
+int	stack_size(t_stack *a)
+{
+	int		count;
+	t_stack	*tmp;
+
+	count = 0;
+	tmp = a;
+	while (tmp)
+	{
+		count++;
+		tmp = tmp->next;
+	}
+	return (count);
+}
+
+void	update_index(t_stack *source)
+{
+	int		index;
+	t_stack	*tmp;
+
+	tmp = source;
+	index = 0;
+	while (tmp)
+	{
+		tmp->index = index;
+		tmp = tmp->next;
+		index++;
+	}
 }
