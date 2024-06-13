@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:06:41 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/12 17:12:19 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/13 17:36:52 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void	sort_3(t_stack *stack_a)
 		rra(&stack_a);
 	}
 	else if (a > b && a > c && b < c)
-		ra(&stack_a);
+		rra(&stack_a);
 	else if (a < b && b > c && a < c)
 		sa(stack_a);
 	else if (a < b && b > c && a > c)

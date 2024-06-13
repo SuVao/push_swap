@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:02:45 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/12 16:56:31 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/13 17:05:05 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,14 +50,14 @@ void	rrr(t_stack **stack_a, t_stack **stack_b)
 	update_index(*stack_b);
 	printf("rrr\n");
 }
-
-/* int main()
+/* 
+int main()
 {
 	t_stack	*a;
 	t_stack	*b;
 	t_stack	*tmpa;
 	t_stack	*tmpb;
-
+	t_stack	*head;
 	a = NULL;
 	a = malloc(sizeof(t_stack));
 	a->nbr = 3;
@@ -74,7 +74,7 @@ void	rrr(t_stack **stack_a, t_stack **stack_b)
 	b->next->next = malloc(sizeof(t_stack));
 	b->next->next->nbr = 1;
 	b->next->next->next = NULL;
-	tmpa = a;
+	head = a;
 	tmpb = b;
 	printf("antes: a\n");
 	while (tmpa)
@@ -88,7 +88,7 @@ void	rrr(t_stack **stack_a, t_stack **stack_b)
 		printf("valor:%d index: %d\n", tmpb->nbr, tmpb->index);
 		tmpb = tmpb->next;
 	}
-	rrr(&a, &b);
+	rra(&a);
 	printf("depois: a\n");
 	while (a)
 	{
@@ -103,3 +103,4 @@ void	rrr(t_stack **stack_a, t_stack **stack_b)
 	}
 	return (0);
 } */
+

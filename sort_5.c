@@ -5,43 +5,64 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/31 17:07:00 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/12 17:18:10 by pesilva-         ###   ########.fr       */
+/*   Created: 2024/06/13 15:12:03 by pesilva-          #+#    #+#             */
+/*   Updated: 2024/06/13 17:18:42 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	find_min(t_stack *stack)
+{
+	int		min;
+	t_stack	*tmp;
+
+	tmp = stack;
+	min = tmp->nbr;
+	while (tmp)
+	{
+		if (tmp->nbr < min)
+			min = tmp->nbr;
+		tmp = tmp->next;
+	}
+	return (min);
+}
+
+int	find_max(t_stack *stack)
+{
+	int		max;
+	t_stack	*tmp;
+
+	tmp = stack;
+	max = tmp->nbr;
+	while (tmp)
+	{
+		if (tmp->nbr > max)
+			max = tmp->nbr;
+		tmp = tmp->next;
+	}
+	return (max);
+}
+
 void	sort_5(t_stack *stack_a, t_stack *stack_b)
 {
-	int		a;
-	int		b;
-	int		c;
-	int		d;
-	int		e;
+	int		i;
+	int		min;
+	int		max;
 
-	a = stack_a->nbr;
-	b = stack_a->next->nbr;
-	c = stack_a->next->next->nbr;
-	d = stack_a->next->next->next->nbr;
-	e = stack_a->next->next->next->next->nbr;
-	if (a > b && b < c && a < c)
-		sa(stack_a);
-	else if (a > b && b > c && a > c)
+	i = 0;
+	min = find_min(stack_a);
+	max = find_max(stack_a);
+	while (i < 2)
 	{
-		sa(stack_a);
-		rra(&stack_a);
+		if (stack_a->nbr == min || stack_a->nbr == max)
+			ra(&stack_a);
+		else
+			pb(&stack_a, &stack_b);
+		i++;
 	}
-	else if (a > b && b > c && a < c)
-		ra(&stack_a);
-	else if (a < b && b > c && a < c)
-		sa(stack_a);
-	else if (a < b && b > c && a > c)
-		rra(&stack_a);
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
 	sort_3(stack_a);
 	pa(&stack_a, &stack_b);
 	pa(&stack_a, &stack_b);
-	
+
 }

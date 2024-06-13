@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:58:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/12 16:55:50 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/13 16:32:58 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,20 @@
 static void	rotate(t_stack **stack)
 {
 	t_stack	*temp;
-	t_stack	*temp2;
+	t_stack	*current;
 
-	if (!(*stack) || !(*stack)->next)
-		return ;
-	temp = *stack;
-	temp2 = *stack;
-	while (temp2->next)
-		temp2 = temp2->next;
-	*stack = temp->next;
+	current = (*stack);
+	temp = (*stack);
+	(*stack) = (*stack)->next;
+	if ((*stack)->next == NULL)
+		(*stack)->next = temp;
+	else
+	{
+		while (current->next != NULL)
+			current = current->next;
+		current->next = temp;
+	}
 	temp->next = NULL;
-	temp2->next = temp;
 }
 
 void	ra(t_stack **stack_a)
@@ -60,11 +63,11 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 
 	a = NULL;
 	a = malloc(sizeof(t_stack));
-	a->nbr = 3;
+	a->nbr = 2;
 	a->next = malloc(sizeof(t_stack));
-	a->next->nbr = 5;
+	a->next->nbr = 1;
 	a->next->next = malloc(sizeof(t_stack));
-	a->next->next->nbr = 1;
+	a->next->next->nbr = 3;
 	a->next->next->next = NULL;
 	b = NULL;
 	b = malloc(sizeof(t_stack));
@@ -88,7 +91,7 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 		printf("valor:%d index: %d\n", tmpb->nbr, tmpb->index);
 		tmpb = tmpb->next;
 	}
-	rr(&a, &b);
+	ra(&a);
 	printf("depois: a\n");
 	while (a)
 	{
@@ -102,4 +105,33 @@ void	rr(t_stack **stack_a, t_stack **stack_b)
 		b = b->next;
 	}
 	return (0);
+} */
+/* 
+int	main()
+{
+	t_stack	*a;
+	t_stack	*tmp;
+	
+	a = NULL;
+	a = malloc(sizeof(t_stack));
+	a->nbr = 2;
+	a->next = malloc(sizeof(t_stack));
+	a->next->nbr = 1;
+	a->next->next = malloc(sizeof(t_stack));
+	a->next->next->nbr = 3;
+	a->next->next->next = NULL;
+	printf("antes:\n");
+	while (a)
+	{
+		printf("%d\n", a->nbr);
+		a = a->next;
+	}
+	tmp = a;
+	ra(&a);
+	printf("depois:\n");
+	while (tmp)
+	{
+		printf("%d\n", tmp->nbr);
+		tmp = tmp->next;
+	}
 } */

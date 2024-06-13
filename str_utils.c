@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:50:39 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/12 13:07:14 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/13 17:36:14 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,6 +82,19 @@ char	**ft_split(char *s)
 	}
 	mat[i] = NULL;
 	return (mat);
+}
+
+
+
+void	print_stack(t_stack *stack)
+{
+	t_stack *tmp;
+	tmp = stack;
+	while (tmp)
+	{
+		printf("%d\n", tmp->nbr);
+		tmp = tmp->next;
+	}
 }
 
 /* int main(int ac, char **av)
