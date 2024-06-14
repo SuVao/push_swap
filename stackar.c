@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:46:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/12 14:29:45 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:42:56 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,7 @@ t_stack *stackar_split(char **av)
 	char **args;
 	t_stack *head;
 	t_stack *new_node;
+	t_stack *tail;
 	
 	i = 0;
 	head = NULL;
@@ -58,13 +59,42 @@ t_stack *stackar_split(char **av)
 			new_node->nbr = ft_atoi(*args);
 			new_node->index = i;
 			new_node->next = head;
+			printf("prev: %p\n", new_node->prev);
 			head = new_node;
+			if (i == 0)
+			{
+				new_node->prev = NULL;
+				tail = new_node;
+			}
+			else
+				new_node->prev = head;
 			i++;
 			free(*args);
 			args++;
 		}
 	}
 	return (head);
+}
+
+t_stack		*tailer(t_stack *stack)
+{
+	t_stack	*tail;
+	
+	tail = stack;
+	while (stack)
+		stack = stack->next;
+	return (tail);
+}
+
+t_stack	*rev_list(t_stack **stack)
+{
+	t_stack	*tmp;
+	
+	tmp = *stack;
+	while (tmp != NULL)
+		tmp = tmp->prev;
+	stack = &tmp;
+	return (*stack);
 }
 
 /* int main(int ac, char **av)

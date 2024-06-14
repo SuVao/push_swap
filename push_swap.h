@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/13 17:31:20 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:42:31 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,14 @@ void free_stack(t_stack *stack_a);
 int	stack_size(t_stack *stack);
 t_stack	*stackar_split(char **av);
 void	update_index(t_stack *source);
-void print_list(t_stack *stack);
+void	print_list(t_stack *stack);
 void	print_stack(t_stack *stack);
+void	ft_lstadd_back(t_stack **lst, t_stack *new);
+t_stack	*ft_lstlast(t_stack *lst);
+void    print_lists(t_stack **a, t_stack **b);
+void	revert_list(t_stack *stack);
+void printListReverse(t_stack *node);
+t_stack	*rev_list(t_stack **stack);
+t_stack		*tailer(t_stack *stack);
 
 #endif

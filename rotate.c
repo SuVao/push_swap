@@ -6,51 +6,48 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:58:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/13 16:32:58 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/14 17:21:25 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rotate(t_stack **stack)
+static t_stack *rotate(t_stack **stack)
 {
-	t_stack	*temp;
-	t_stack	*current;
-
-	current = (*stack);
-	temp = (*stack);
-	(*stack) = (*stack)->next;
-	if ((*stack)->next == NULL)
-		(*stack)->next = temp;
-	else
-	{
-		while (current->next != NULL)
-			current = current->next;
-		current->next = temp;
-	}
-	temp->next = NULL;
+    t_stack  *last;
+    t_stack  *tmp;
+    if (!stack)
+        return (NULL);
+    tmp = (*stack);
+    last = ft_lstlast((*stack));
+    (*stack) = (*stack)->next;
+    (*stack)->prev = NULL;
+    last->next = tmp;
+    tmp->prev = last;
+    tmp->next = NULL;
+    update_index(*stack);
+	printf("\nafter rotate\n");
+	print_stack(*stack);
+	return (*stack);
 }
 
 void	ra(t_stack **stack_a)
 {
 	rotate(stack_a);
-	update_index(*stack_a);
 	printf("ra\n");
+	// print_lists(stack_a, stack_a);
 }
 
 void	rb(t_stack **stack_b)
 {
 	rotate(stack_b);
-	update_index(*stack_b);
 	printf("rb\n");
 }
 
 void	rr(t_stack **stack_a, t_stack **stack_b)
 {
 	rotate(stack_a);
-	update_index(*stack_a);
 	rotate(stack_b);
-	update_index(*stack_b);
 	printf("rr\n");
 }
 

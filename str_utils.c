@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:50:39 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/13 17:36:14 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/14 15:00:47 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,27 +97,93 @@ void	print_stack(t_stack *stack)
 	}
 }
 
-/* int main(int ac, char **av)
+
+void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {
-	if (ac >= 2)
+	t_stack	*tmp;
+
+	if (!*lst)
 	{
-		int j = 0;
-		while (j < ac)
-		{
-			while (*++av != NULL)
-			{
-				int i = 0;
-				char **mat;
-				mat = ft_split(av[i]);
-				while (mat[i] != NULL)
-				{
-					printf("%s \n", mat[i]);
-					free(mat[i++]);
-				}
-				free(mat);
-			}
-			j++;
-		}
+		*lst = new;
+		return ;
 	}
-	write(1, "\n", 1);
-} */
+	tmp = *lst;
+	while (tmp->next)
+		tmp = tmp->next;
+	tmp->next = new;
+}
+
+t_stack	*ft_lstlast(t_stack *lst)
+{
+	t_stack	*tmp;
+
+	tmp = lst;
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp);
+}
+
+
+void    print_lists(t_stack **a, t_stack **b)
+{
+    t_stack  *temp;
+    t_stack  *tmp_next;
+    t_stack  *tmp_prev;
+    t_stack  *tmp_index;
+    temp = *a;
+    tmp_next = *a;
+    tmp_prev = *a;
+    tmp_index = *a;
+    write(1, "\nLIST A\n", 8);
+    while (temp != NULL)
+    {
+        printf("%i\n", temp->nbr);
+        temp = temp->next;
+    }
+    temp = *b;
+    write(1, "\nLIST B\n", 8);
+    while (temp != NULL)
+    {
+        printf("%i\n", temp->nbr);
+        temp = temp->next;
+    }
+    write(1, "\n\nLIST A - INDEX\n", 17);
+    while (tmp_index != NULL)
+    {
+        printf("%i\n", tmp_index->index);
+        tmp_index = tmp_index->next;
+    }
+    tmp_index = *b;
+    write(1, "\n\nLIST B - INDEX\n", 17);
+    while (tmp_index != NULL)
+    {
+        printf("%i\n", tmp_index->index);
+        tmp_index = tmp_index->next;
+    }
+    write(1, "\n\nLIST A - PREV\n", 16);
+    while (tmp_prev != NULL)
+    {
+        printf("%p\n", tmp_prev->prev);
+        tmp_prev = tmp_prev->next;
+    }
+    tmp_prev = *b;
+    write(1, "\n\nLIST B - PREV\n", 16);
+    while (tmp_prev != NULL)
+    {
+        printf("%p\n", tmp_prev->prev);
+        tmp_prev = tmp_prev->next;
+    }
+    write(1, "\n\nLIST A - NEXT\n", 16);
+    while (tmp_next != NULL)
+    {
+        printf("%p\n", tmp_next->next);
+        tmp_next = tmp_next->next;
+    }
+    tmp_next = *b;
+    write(1, "\n\nLIST B - NEXT\n", 16);
+    while (tmp_next != NULL)
+    {
+        printf("%p\n", tmp_next->next);
+        tmp_next = tmp_next->next;
+    }
+}
