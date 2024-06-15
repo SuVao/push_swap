@@ -1,0 +1,30 @@
+{
+	number, index, next, prev
+}
+
+stacksize(stacl) -> Lenghtof the stack;
+
+number(stack, newnumber)
+{
+	newnode.number = newnumber;
+	newnode.index = stack.index + 1
+	newnode.prev = stack;
+	newnode.next = vazio;
+	stack.next = newnode;
+	return newnode; 
+}
+
+gethead(stack) -> returna a primeira posicao
+gettail(stack) -> percorre a lista toda, e retorna o ultimo elemento.
+
+f(newnumber, stack)
+{
+
+	se nao ha stack
+	stack = newnode(stack, newnumber);
+	stack = newnode(stack, newnumber);
+	stack = newnode(stack, newnumber);
+	stack = newnode(stack, newnumber);
+	stack = newnode(stack, newnumber);
+	stack = newnode(stack, newnumber);
+}

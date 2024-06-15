@@ -6,36 +6,33 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:58:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/14 17:21:25 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:44:08 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_stack *rotate(t_stack **stack)
+static void rotate(t_stack **stack)
 {
-    t_stack  *last;
-    t_stack  *tmp;
-    if (!stack)
-        return (NULL);
-    tmp = (*stack);
-    last = ft_lstlast((*stack));
-    (*stack) = (*stack)->next;
-    (*stack)->prev = NULL;
-    last->next = tmp;
-    tmp->prev = last;
-    tmp->next = NULL;
-    update_index(*stack);
-	printf("\nafter rotate\n");
-	print_stack(*stack);
-	return (*stack);
+	t_stack	*temp;
+	t_stack	*current;
+	
+	temp = *stack; // primeira posicao
+	current = *stack; // stack temporaria para percorrer a lista
+	*stack = (*stack)->next; // a primeira posicao passa a ser a segunda
+	while (current->next != NULL)
+		current = current->next;
+	current->next = temp; // a ultima posicao aponta para a primeira 
+	temp->next = NULL; // a primeira posicao aponta para NULL
+	temp->prev = current; // a primeira posicao aponta para a ultima
+	(*stack)->prev = NULL;
+	update_index(*stack);
 }
 
 void	ra(t_stack **stack_a)
 {
 	rotate(stack_a);
 	printf("ra\n");
-	// print_lists(stack_a, stack_a);
 }
 
 void	rb(t_stack **stack_b)

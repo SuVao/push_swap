@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:02:45 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/13 17:05:05 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/15 17:08:02 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,39 +15,37 @@
 static void	rev_rotate(t_stack **stack)
 {
 	t_stack	*temp;
-	t_stack	*temp2;
+	t_stack	*current;
 
-	if (!*stack || !(*stack)->next)
-		return ;
-	temp = *stack;
-	temp2 = *stack;
-	while (temp2->next->next)
-		temp2 = temp2->next;
-	temp2->next->next = temp;
-	*stack = temp2->next;
-	temp2->next = NULL;
+	current = *stack;
+	while (current->next->next)
+		current = current->next;
+	temp = current->next;
+	current->next = NULL;
+	temp->next = *stack;
+	*stack = temp;
+	current = *stack;
+	update_index(*stack);
 }
 
 void	rra(t_stack **stack_a)
 {
 	rev_rotate(stack_a);
-	update_index(*stack_a);
 	printf("rra\n");
+	print_stack(*stack_a);
+
 }
 
 void	rrb(t_stack **stack_b)
 {
 	rev_rotate(stack_b);
-	update_index(*stack_b);
 	printf("rrb\n");
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	rev_rotate(stack_a);
-	update_index(*stack_a);
 	rev_rotate(stack_b);
-	update_index(*stack_b);
 	printf("rrr\n");
 }
 /* 

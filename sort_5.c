@@ -6,63 +6,47 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:12:03 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/14 15:00:07 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:02:41 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_min(t_stack *stack)
+int maior(t_stack *stack_a)
 {
-	int		min;
-	t_stack	*tmp;
+	int maior;
+	t_stack *aux;
 
-	tmp = stack;
-	min = tmp->nbr;
-	while (tmp)
+	aux = stack_a;
+	maior = aux->nbr;
+	while (aux)
 	{
-		if (tmp->nbr < min)
-			min = tmp->nbr;
-		tmp = tmp->next;
+		if (aux->nbr > maior)
+			maior = aux->nbr;
+		aux = aux->next;
 	}
-	return (min);
+	return (maior);
 }
 
-int	find_max(t_stack *stack)
+void	*sort_5(t_stack *stack_a, t_stack *stack_b)
 {
-	int		max;
-	t_stack	*tmp;
-
-	tmp = stack;
-	max = tmp->nbr;
-	while (tmp)
-	{
-		if (tmp->nbr > max)
-			max = tmp->nbr;
-		tmp = tmp->next;
-	}
-	return (max);
-}
-
-void	sort_5(t_stack *stack_a, t_stack *stack_b)
-{
-	int		i;
-	int		min;
-	int		max;
-
-	i = 0;
-	min = find_min(stack_a);
-	max = find_max(stack_a);
-	while (i < 2)
-	{
-		if (stack_a->nbr == min || stack_a->nbr == max)
-			ra(&stack_a);
-		else
-			pb(&stack_a, &stack_b);
-		i++;
-	}
-	sort_3(stack_a);
+	int	i;
+	int	j;
+	int	k;
+	int	l;
+	int	m;
+	
+	i = stack_a->nbr;
+	j = stack_a->next->nbr;
+	k = stack_a->next->next->nbr;
+	l = stack_a->next->next->next->nbr;
+	m = stack_a->next->next->next->next->nbr;
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	stack_a = sort_3(stack_a);
+	if (stack_b->nbr > stack_b->next->nbr)
+		sb(stack_b);
 	pa(&stack_a, &stack_b);
 	pa(&stack_a, &stack_b);
-
+	return (stack_a);
 }

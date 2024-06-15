@@ -6,14 +6,14 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:46:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/14 17:42:56 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/15 18:13:11 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 
-static int ft_atoi(char *n)
+int ft_atoi(char *n)
 {
 	int i;
 	int sign;
@@ -40,14 +40,15 @@ static int ft_atoi(char *n)
 
 t_stack *stackar_split(char **av)
 {
-	int i;
-	char **args;
-	t_stack *head;
-	t_stack *new_node;
-	t_stack *tail;
+	int		i;
+	char	**args;
+	t_stack	*head;
+	t_stack	*new_node;
+	t_stack	*tail;
 	
-	i = 0;
 	head = NULL;
+	tail = NULL;
+	i = 1;
 	while (*++av)
 	{
 		args = ft_split(*av);
@@ -57,45 +58,26 @@ t_stack *stackar_split(char **av)
 			if (!new_node)
 				return (NULL);
 			new_node->nbr = ft_atoi(*args);
-			new_node->index = i;
-			new_node->next = head;
-			printf("prev: %p\n", new_node->prev);
-			head = new_node;
-			if (i == 0)
-			{
-				new_node->prev = NULL;
-				tail = new_node;
-			}
-			else
-				new_node->prev = head;
-			i++;
-			free(*args);
+			new_node->index = i++;
+			new_node->next = NULL;
+			new_node->prev = tail;
+			if (!head)
+				head = new_node;
+			if (tail)
+				tail->next = new_node;
+			tail = new_node;
 			args++;
 		}
 	}
 	return (head);
 }
 
-t_stack		*tailer(t_stack *stack)
+void	ft_lstadd_front(t_stack **lst, t_stack *new)
 {
-	t_stack	*tail;
-	
-	tail = stack;
-	while (stack)
-		stack = stack->next;
-	return (tail);
+	new->next = *lst;
+	*lst = new;
 }
 
-t_stack	*rev_list(t_stack **stack)
-{
-	t_stack	*tmp;
-	
-	tmp = *stack;
-	while (tmp != NULL)
-		tmp = tmp->prev;
-	stack = &tmp;
-	return (*stack);
-}
 
 /* int main(int ac, char **av)
 {
