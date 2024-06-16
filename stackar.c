@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:46:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/15 18:13:11 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/16 23:22:31 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,10 @@ int ft_atoi(char *n)
 	return (res * sign);
 }
 
-t_stack *stackar_split(char **av)
+/* t_stack *stackar_split(char **av)
 {
 	int		i;
-	char	**args;
+	static char	**args;
 	t_stack	*head;
 	t_stack	*new_node;
 	t_stack	*tail;
@@ -66,8 +66,39 @@ t_stack *stackar_split(char **av)
 			if (tail)
 				tail->next = new_node;
 			tail = new_node;
+			printf("%p\n", args);
+			if (*args)
+				free(*args);
 			args++;
 		}
+	}
+	return (head);
+} */
+
+t_stack *stackar_split(char **av)
+{
+	int		i;
+	t_stack	*head;
+	t_stack	*new_node;
+	t_stack	*tail;
+	
+	head = NULL;
+	tail = NULL;
+	i = 1;
+	while (*++av)
+	{
+		new_node = malloc(sizeof(t_stack));
+		if (!new_node)
+			return (NULL);
+		new_node->nbr = ft_atoi(*av);
+		new_node->index = i++;
+		new_node->next = NULL;
+		new_node->prev = tail;
+		if (!head)
+			head = new_node;
+		if (tail)
+			tail->next = new_node;
+		tail = new_node;
 	}
 	return (head);
 }

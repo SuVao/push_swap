@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:58:21 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/16 13:39:08 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/16 23:07:14 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int	nbr_check(char **str)
 		j = 0;
 		while (str[i][j])
 		{
-			if (!ft_isdigit(str[i][j]) && str[i][j] != '-' && str[i][j] != '+')
+			if (!ft_isdigit(str[i][j]) && str[i][j] != '-' && str[i][j] != '+' && str[i][j] != '"')
 			{
 				printf("Charater detected!\n");
 				return (0);

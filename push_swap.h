@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/16 13:12:54 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/16 22:40:10 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,6 @@ void	printNodeDetail(t_stack *node);
 int		ft_atoi(char *n);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
 int	nbr_check(char **str);
+void free_split(char **split);
 
 #endif
