@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:58:21 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/15 17:07:23 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/16 13:39:08 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,58 @@ int	is_sorted(t_stack *a)
 	{
 		if (tmp->nbr > tmp->next->nbr)
 			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
+static int ft_isdigit(int c)
+{
+	return (c >= '0' && c <= '9');
+}
+
+int	nbr_check(char **str)
+{
+	int	i;
+	int j;
+
+	i = 1;
+	j = 0;
+	while (str[i])
+	{
+		j = 0;
+		while (str[i][j])
+		{
+			if (!ft_isdigit(str[i][j]) && str[i][j] != '-' && str[i][j] != '+')
+			{
+				printf("Charater detected!\n");
+				return (0);
+			}
+			j++;
+		}
+		i++;
+	}
+	return (1);
+}
+
+int	check_nbr(t_stack *a)
+{
+	t_stack	*tmp;
+	t_stack	*tmp2;
+
+	tmp = a;
+	while (tmp)
+	{
+		tmp2 = tmp->next;
+		while (tmp2)
+		{
+			if (tmp->nbr == tmp2->nbr)
+			{
+				printf("Numero repetido!\n");
+				return (0);
+			}
+			tmp2 = tmp2->next;
+		}
 		tmp = tmp->next;
 	}
 	return (1);

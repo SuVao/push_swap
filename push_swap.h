@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/15 18:11:24 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/16 13:12:54 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	sort_big(t_stack *stack_a, t_stack *stack_b);
 /*-------stack--------*/
 
 t_stack	*stackar(int ac, char **av);
-int		check_nbr(t_stack **stack, int ac);
+int		check_nbr(t_stack *stack);
 int		menor(t_stack *stack);
 int		maior(t_stack *stack);
 
@@ -67,5 +67,6 @@ void	print_lists(t_stack **a, t_stack **b);
 void	printNodeDetail(t_stack *node);
 int		ft_atoi(char *n);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
+int	nbr_check(char **str);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:12:03 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/15 18:02:41 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/15 22:30:08 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,17 +30,17 @@ int maior(t_stack *stack_a)
 
 void	*sort_5(t_stack *stack_a, t_stack *stack_b)
 {
-	int	i;
-	int	j;
-	int	k;
-	int	l;
-	int	m;
+	// int	i;
+	// int	j;
+	// int	k;
+	// int	l;
+	// int	m;
 	
-	i = stack_a->nbr;
-	j = stack_a->next->nbr;
-	k = stack_a->next->next->nbr;
-	l = stack_a->next->next->next->nbr;
-	m = stack_a->next->next->next->next->nbr;
+	// i = stack_a->nbr;
+	// j = stack_a->next->nbr;
+	// k = stack_a->next->next->nbr;
+	// l = stack_a->next->next->next->nbr;
+	// m = stack_a->next->next->next->next->nbr;
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
 	stack_a = sort_3(stack_a);
