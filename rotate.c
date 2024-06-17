@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:58:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/15 17:44:08 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/17 14:52:51 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ static void rotate(t_stack **stack)
 	t_stack	*temp;
 	t_stack	*current;
 	
+	if (!*stack || !(*stack)->next)
+		return ;
 	temp = *stack; // primeira posicao
 	current = *stack; // stack temporaria para percorrer a lista
 	*stack = (*stack)->next; // a primeira posicao passa a ser a segunda

@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:06:41 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/15 17:44:35 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/17 13:44:20 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,3 @@ void	*sort_3(t_stack *stack_a)
 		rra(&stack_a);
 	return (stack_a);
 }
-
-/* int main()
-{
-	t_stack	*a;
-
-	a = NULL;
-	a->nbr = 3;
-	a->next->nbr = 5;
-	a->next->next->nbr = 1;
-
-	while (a->next)
-	{
-		printf("%d\n", a->nbr);
-		a = a->next;
-	}
-	return (0);
-} */

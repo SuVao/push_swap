@@ -6,63 +6,86 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:05:46 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/08 13:36:46 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/17 14:18:23 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* int stack_size(t_stack **stack_a)
+int	find_smallest(t_stack *stack)
 {
-	int i;
-	
-	if (!stack_a)
-		return (0);
-	i = 0;
-	while (stack_a[i] != NULL)
+	int		smallest;
+	t_stack	*current;
+
+	current = stack;
+	smallest = current->nbr;
+	while (current)
 	{
-		stack_a[i] = stack_a[i]->next;
-		i++;
+		if (current->nbr < smallest)
+			smallest = current->nbr;
+		current = current->next;
 	}
-	return (i - 1);
+	return (smallest);
 }
- */
-/* void	sort_big(t_stack **stack_a, t_stack **stack_b)
+
+int find_biggest(t_stack *stack)
 {
+	int		biggest;
+	t_stack	*current;
+
+	current = stack;
+	biggest = current->nbr;
+	while (current)
+	{
+		if (current->nbr > biggest)
+			biggest = current->nbr;
+		current = current->next;
+	}
+	return (biggest);
+}
+
+/* int	find_median(t_stack *stack)
+{
+	int		median;
 	int		*array;
 	int		i;
-	int		size;
+	t_stack	*current;
 
-	size = stack_size(*stack_a);
-	array = malloc(sizeof(int) * size);
+	current = stack;
+	array = malloc(sizeof(int) * stack_size(stack));
 	if (!array)
-		return ;
+		return (0);
 	i = 0;
-	while (i < size)
+	while (current)
 	{
-		array[i] = (*stack_a)->nbr;
-		ra(stack_a);
+		array[i] = current->nbr;
+		current = current->next;
 		i++;
 	}
-	i = 0;
-	while (i < size)
-	{
-		pb(stack_a, stack_b);
-		i++;
-	}
+	quick_sort(array, 0, stack_size(stack) - 1);
+	median = array[stack_size(stack) / 2];
 	free(array);
+	return (median);
 } */
 
-/* void	big_sort(int ac, char **av)
+int	find_index(t_stack *stack, int nbr)
 {
-	int	i;
-	t_stack	**stack_a;
-	t_stack	**stack_b;
-	
-	i = 0;
-	stack_a = stackar(ac, av);
-	stack_b = malloc(sizeof(t_stack *) * ac);
-	if (!stack_b)
-		return(NULL);
+	int		index;
+	t_stack	*current;
+
+	current = stack;
+	index = 0;
+	while (current)
+	{
+		if (current->nbr == nbr)
+			return (index);
+		current = current->next;
+		index++;
+	}
+	return (index);
+}
+
+/* void	*sort(t_stack *stack_a, t_stack stack_b)
+{
 	
 } */

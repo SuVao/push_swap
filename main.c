@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:24:42 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/16 23:12:16 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/17 13:21:42 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,7 +106,7 @@ int main(int ac, char **av)
 	else if (stack_size(a) == 5)
 		a = sort_5(a, b);
 /* 	printf("+++++++++++++++++++++++ AFTER ================= \n\n"); */
-	/* print_stack(a); */
+	print_stack(a);
 	if (!is_sorted(a))
 		printf("stack is not sorted\n");
 	else

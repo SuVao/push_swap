@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:46:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/16 23:22:31 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/17 13:44:38 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -109,21 +109,3 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new)
 	*lst = new;
 }
 
-
-/* int main(int ac, char **av)
-{
-	t_stack	*new;
-	t_stack	*tmp;
-	if (ac >=2)
-	{
-		new = stackar_split(av);
-		while (new)
-		{
-			printf("%d\n", new->nbr);
-			tmp = new;
-			new = new->next;
-			free(tmp);
-		}
-		free(new);
-	}
-} */
