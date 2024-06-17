@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/17 14:17:33 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/17 16:53:35 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ss(t_stack *stack_a, t_stack *stack_b);
 
 void	*sort_3(t_stack *stack_a);
 void	*sort_5(t_stack *stack_a, t_stack *stack_b);
-void	sort_big(t_stack *stack_a, t_stack *stack_b);
+void	*sort(t_stack *stack_a, t_stack *stack_b);
 
 /*-------stack--------*/
 
