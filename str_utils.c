@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:50:39 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/16 22:58:07 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/19 14:04:34 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,17 +86,26 @@ char	**ft_split(char *s)
 
 
 
-void	print_stack(t_stack *stack)
+void	print_stack(t_stack *stack_a, t_stack *stack_b)
 {
-	t_stack *tmp;
-	tmp = stack;
-	while (tmp)
+	t_stack	*tmp1;
+	t_stack	*tmp2;
+	
+	tmp1 = stack_a;
+	tmp2 = stack_b;
+	while (tmp1)
 	{
-		printf("nbr %d index: %d\n", tmp->nbr, tmp->index);
-		tmp = tmp->next;
+		printf("%i\n", tmp1->nbr);
+		tmp1 = tmp1->next;
 	}
+	printf("A\n");
+	while (tmp2)
+	{
+		printf("\t%i\n", tmp2->nbr);
+		tmp2 = tmp2->next;
+	}
+	printf("B\n");
 }
-
 
 void	ft_lstadd_back(t_stack **lst, t_stack *new)
 {

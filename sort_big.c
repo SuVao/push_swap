@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:05:46 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/18 16:14:37 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/19 17:54:46 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,52 +44,80 @@ int find_biggest(t_stack *stack)
 	return (biggest);
 }
 
-int	find_index(t_stack *stack, int nbr)
+int	find_pivot(t_stack *stack)
 {
-	int		index;
+	int		pivot;
+	int		biggest;
+	int		smallest;
+
+	biggest = find_biggest(stack);
+	smallest = find_smallest(stack);
+	pivot = (biggest + smallest) / 2;
+	return (pivot);
+}
+
+int	rev_is_sort(t_stack *stack)
+{
 	t_stack	*current;
 
 	current = stack;
-	index = 0;
-	while (current)
+	while (current->next)
 	{
-		if (current->nbr == nbr)
-			return (index);
+		if (current->nbr > current->next->nbr)
+			return (0);
 		current = current->next;
-		index++;
 	}
-	return (index);
+	return (1);
 }
+
+/* void	*quicksort(t_stack *stack_a, t_stack *stack_b, int size)
+{
+	int pivot;
+	int i;
+
+	if (stack_size(stack_a) <= 3)
+		stack_a = sort_3(stack_a);
+	i = 0;
+	pivot = find_pivot(stack_a);
+	while (i < stack_size(stack_a))
+	{
+		if (stack_a->nbr < pivot)
+			pb(&stack_a, &stack_b);
+		else
+			ra(&stack_a);
+		i++;
+	}
+	if (rev_is_sort(stack_b))
+	{
+		while (stack_b)
+			pa(&stack_a, &stack_b);
+		return (stack_a);
+	}
+	while (stack_b)
+		pa(&stack_a, &stack_b);
+	if (is_sorted(stack_a) && stack_size(stack_a) == size)
+		return (stack_a);
+	else
+		return (quicksort(stack_a, stack_b, size));
+}
+ */
 
 void	*sort(t_stack *stack_a, t_stack *stack_b)
 {
-	/* int		biggest;
-	int		smallest;
-	int		index; */
-	int		size;
+	int i;
 
-	size = stack_size(stack_a);
-	while (size > 3)
+	i = 0;
+	while (stack_size(stack_a) > 3)
 	{
-		pb(&stack_a, &stack_b);
-		size--;
+		if (stack_a->nbr == find_smallest(stack_a))
+			ra(&stack_a);
+		else
+			pb(&stack_a, &stack_b);
 	}
-	stack_a = sort_3(stack_a);
+	stack_b = sort_3(stack_b);
+	while (stack_size(stack_a) > 3)
+		move_a_to_b(&stack_a, &stack_b);
 	while (stack_b)
-		move_b_to_a(&stack_a, &stack_b);
-	size = stack_size(stack_a);
-	while (size > 3)
-	{
-		pb(&stack_a, &stack_b);
-		size--;
-	}
-	stack_a = sort_3(stack_a);
-	while (stack_b)
-		move_b_to_a(&stack_a, &stack_b);
-	printf("stack_a\n");
-	print_stack(stack_a);
-	printf("stack_b\n");
-	print_stack(stack_b);
-
+		pa(&stack_a, &stack_b);
 	return (stack_a);
 }
