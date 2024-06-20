@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/19 17:39:59 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/20 18:28:24 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	ss(t_stack *stack_a, t_stack *stack_b);
 
 /*--------sort-------*/
 
-void	*sort_3(t_stack *stack_a);
+t_stack	*sort_3(t_stack *stack_a);
 void	*sort_5(t_stack *stack_a, t_stack *stack_b);
 void	*sort(t_stack *stack_a, t_stack *stack_b);
 
@@ -75,7 +75,7 @@ int	find_median(t_stack *stack);
 int	find_index(t_stack *stack, int nbr);
 int	cheapest_move(t_stack *stack_a, t_stack *stack_b);
 void	move_a_to_b(t_stack **stack_a, t_stack **stack_b);
-void	move_b_to_a(t_stack **stack_a, t_stack **stack_b);
+void	move_b_to_a(t_stack *stack_a, t_stack *stack_b);
 void	quick_sort(t_stack *stack_a, t_stack *stack_b);
 int rev_is_sort(t_stack *stack);
 

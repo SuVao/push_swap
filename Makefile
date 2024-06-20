@@ -6,7 +6,7 @@
 #    By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/08 15:15:44 by pesilva-          #+#    #+#              #
-#    Updated: 2024/06/19 17:04:27 by pesilva-         ###   ########.fr        #
+#    Updated: 2024/06/20 14:33:16 by pesilva-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC = 	main.c \
 		sort_5.c \
 		sort_big.c \
 		stackar.c \
+		str_utils.c \
 		checkagem.c \
 
 OBJ = ${SRC:.c=.o}

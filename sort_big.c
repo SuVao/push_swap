@@ -6,45 +6,13 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:05:46 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/19 17:54:46 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/20 18:41:45 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	find_smallest(t_stack *stack)
-{
-	int		smallest;
-	t_stack	*current;
-
-	current = stack;
-	smallest = current->nbr;
-	while (current)
-	{
-		if (current->nbr < smallest)
-			smallest = current->nbr;
-		current = current->next;
-	}
-	return (smallest);
-}
-
-int find_biggest(t_stack *stack)
-{
-	int		biggest;
-	t_stack	*current;
-
-	current = stack;
-	biggest = current->nbr;
-	while (current)
-	{
-		if (current->nbr > biggest)
-			biggest = current->nbr;
-		current = current->next;
-	}
-	return (biggest);
-}
-
-int	find_pivot(t_stack *stack)
+/* int	find_pivot(t_stack *stack)
 {
 	int		pivot;
 	int		biggest;
@@ -54,7 +22,7 @@ int	find_pivot(t_stack *stack)
 	smallest = find_smallest(stack);
 	pivot = (biggest + smallest) / 2;
 	return (pivot);
-}
+} */
 
 int	rev_is_sort(t_stack *stack)
 {
@@ -107,17 +75,15 @@ void	*sort(t_stack *stack_a, t_stack *stack_b)
 	int i;
 
 	i = 0;
-	while (stack_size(stack_a) > 3)
-	{
-		if (stack_a->nbr == find_smallest(stack_a))
-			ra(&stack_a);
-		else
-			pb(&stack_a, &stack_b);
-	}
-	stack_b = sort_3(stack_b);
-	while (stack_size(stack_a) > 3)
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	while(stack_size(stack_a) > 2)
 		move_a_to_b(&stack_a, &stack_b);
-	while (stack_b)
-		pa(&stack_a, &stack_b);
+	print_stack(stack_a, stack_b); 
+	stack_a = sort_3(stack_a);
+	/*while(stack_size(stack_b) > 0)
+		move_b_to_a(&stack_a, &stack_b);
+	if (!is_sorted(stack_a))
+		sort(stack_a, stack_b); */
 	return (stack_a);
 }

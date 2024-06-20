@@ -6,13 +6,13 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:06:41 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/17 13:44:20 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/20 14:15:23 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	*sort_3(t_stack *stack_a)
+t_stack	*sort_3(t_stack *stack_a)
 {
 	int		a;
 	int		b;
