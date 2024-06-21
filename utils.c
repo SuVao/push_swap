@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:09:02 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/20 18:49:42 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/21 16:55:41 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,46 +92,61 @@ void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 	
 	current_a = *stack_a;
 	current_b = *stack_b;
-	i = 0;
+	i = 1;
 	/* printf("current tail: %d\n", current_a->nbr); */
 	cheapest = cheapest_move(current_a, current_b);
 	if (cheapest == 0)
 		return ;
-	printf("=====================\n");
+	if (stack_size(current_a) - cheapest < 3)
+		cheapest = stack_size(current_a) - 3;
 	printf("cheapest: %d\n", cheapest);
-	while (i < cheapest)
+	while (i <= cheapest)
 	{
+		print_stack(current_a, current_b);
 		if (current_a->nbr == find_smallest(current_a))
 		{
 			pb(&current_a, &current_b);
-			
 		}
 		else
 			ra(&current_a);
 		i++;
 	}
-	printf("=========stack rodada=========\n");
 	*stack_a = current_a;
 	*stack_b = current_b;
-	print_stack(*stack_a, *stack_b);
 }
 
-void	move_b_to_a(t_stack *stack_a, t_stack *stack_b)
+void	move_b_to_a(t_stack **stack_a, t_stack **stack_b)
 {
 	int		cheapest;
 	int		i;
+	t_stack	*current_a;
+	t_stack	*current_b;
 
+	current_a = *stack_a;
+	current_b = *stack_b;
 	i = 0;
-	cheapest = cheapest_move(stack_b, stack_a);
-	while (i < cheapest)
+	cheapest = cheapest_move(current_b, current_a);
+	if (cheapest == 0)
+		return ;
+	if (cheapest > stack_size(current_b))
+		cheapest = stack_size(current_b);
+	else if (cheapest < stack_size(current_b))
+		cheapest = stack_size(current_b);
+	while (i <= cheapest)
 	{
-		if (stack_b->nbr == find_biggest(stack_b))
+		if (current_b->nbr > find_biggest(current_a))
 		{
-			pa(&stack_b, &stack_a);
+			pa(&current_b, &current_a);
+			ra(&current_a);
 		}
+		else if (current_b->nbr == find_biggest(current_b))
+			pa(&current_b, &current_a);
 		else
-			rb(&stack_b);
+			rb(&current_b);
 		i++;
 	}
+	*stack_a = current_a;
+	*stack_b = current_b;
+	print_stack(*stack_a, *stack_b);
 }
 
