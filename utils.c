@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:09:02 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/21 16:55:41 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/22 16:02:37 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -100,15 +100,15 @@ void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 	if (stack_size(current_a) - cheapest < 3)
 		cheapest = stack_size(current_a) - 3;
 	printf("cheapest: %d\n", cheapest);
-	while (i <= cheapest)
+	while (i <= cheapest + 1)
 	{
-		print_stack(current_a, current_b);
 		if (current_a->nbr == find_smallest(current_a))
 		{
 			pb(&current_a, &current_b);
 		}
 		else
 			ra(&current_a);
+		print_stack(current_a, current_b);
 		i++;
 	}
 	*stack_a = current_a;
@@ -132,8 +132,9 @@ void	move_b_to_a(t_stack **stack_a, t_stack **stack_b)
 		cheapest = stack_size(current_b);
 	else if (cheapest < stack_size(current_b))
 		cheapest = stack_size(current_b);
-	while (i <= cheapest)
+	while (i < cheapest)
 	{
+		printf("cheapest: %d\n", cheapest);
 		if (current_b->nbr > find_biggest(current_a))
 		{
 			pa(&current_b, &current_a);

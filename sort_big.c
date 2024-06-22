@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:05:46 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/21 18:35:40 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/22 16:02:59 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	rev_is_sort(t_stack *stack)
 	return (1);
 }
 
-void	*quicksort(t_stack *stack_a, t_stack *stack_b)
+/* void	*quicksort(t_stack *stack_a, t_stack *stack_b)
 {
 	int pivot;
 	t_stack *current_a;
@@ -80,7 +80,7 @@ void	*quicksort(t_stack *stack_a, t_stack *stack_b)
 	stack_a = current_a;
 	stack_b = current_b;
 	return (stack_a);
-}
+} */
 
 //ate a stack a estiver vazia 
 //se o nbr for maior que o pivot, pb
@@ -97,7 +97,7 @@ void	*quicksort(t_stack *stack_a, t_stack *stack_b)
 //faco rb senao faco pa
 
 
-/* void	*sort(t_stack *stack_a, t_stack *stack_b)
+void	*sort(t_stack *stack_a, t_stack *stack_b)
 {
 	int i;
 	int size;
@@ -106,12 +106,16 @@ void	*quicksort(t_stack *stack_a, t_stack *stack_b)
 	i = 0;
 	pb(&stack_a, &stack_b);
 	pb(&stack_a, &stack_b);
+	print_stack(stack_a, stack_b);
+
 	while(stack_size(stack_a) > 3)
 		move_a_to_b(&stack_a, &stack_b);
 	print_stack(stack_a, stack_b);
 	stack_a = sort_3(stack_a);
-	move_b_to_a(&stack_a, &stack_b);
+	while (stack_size(stack_b) != 0)
+		move_b_to_a(&stack_a, &stack_b);
+	
 	if (!is_sorted(stack_a))
 		stack_a = sort(stack_a, stack_b);
 	return (stack_a);
-} */
+}
