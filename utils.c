@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:09:02 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/22 16:02:37 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/24 16:37:37 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,130 @@ int	cheapest_move(t_stack *stack_a, t_stack *stack_b)
 	return (cheapest);
 }
 
-void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
+int	is_the_small(int nbr, t_stack *stack)
+{
+	if (!stack)
+		return (0);
+	while (stack->next)
+	{
+		if (stack->nbr == find_smallest(stack))
+			return (1);
+		stack = stack->next;
+	}
+	return (0);
+}
+
+int half_stack_small(t_stack **stacks)
+{
+	int smaller;
+	int size;
+	t_stack *stack;
+	
+	stack = *stacks;
+	if (stack_size(stack) % 2 == 0)
+		size = stack_size(stack) / 2;
+	else 
+		size = stack_size(stack) / 2 + 1;
+	smaller = find_smallest(stack);
+	while (stack)
+	{
+		if (stack->nbr == smaller)
+		{
+			if (stack->index <= size)
+				return (1);
+			else 
+				return (2);
+		}
+		stack = stack->next;
+	}
+	return (0);
+}
+
+int half_stack_big(t_stack **stacks)
+{
+	int biggest;
+	int size;
+	t_stack *stack;
+	
+	stack = *stacks;
+	if (stack_size(stack) % 2 == 0)
+		size = stack_size(stack) / 2;
+	else 
+		size = stack_size(stack) / 2 + 1;
+	biggest = find_biggest(stack);
+	while (stack)
+	{
+		if (stack->nbr == biggest)
+		{
+			if (stack->index <= size)
+				return (1);
+			else 
+				return (2);
+		}
+		stack = stack->next;
+	}
+	return (0);
+}
+
+void cheapest_a_to_b(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack	*tmpa;
+	t_stack *tmpb;
+
+	tmpa = *stack_a;
+	tmpb = *stack_b;
+	while (tmpa)
+	{
+		if (half_stack_small(&tmpa) == 1)
+		{
+			if (tmpa->nbr == find_smallest(tmpa))
+			{
+				pb(&tmpa, &tmpb);
+			}
+			else
+				ra(&tmpa);
+		}
+		else if (half_stack_small(&tmpa) == 2)
+		{
+			if (tmpa->nbr == find_smallest(tmpa))
+				pb(&tmpa, &tmpb);
+			else
+				rra(&tmpa);
+		}
+	}
+	*stack_a = tmpa;
+	*stack_b = tmpb;
+}
+
+void cheapest_b_to_a(t_stack **stack_a, t_stack **stack_b)
+{
+	t_stack *a;
+	t_stack *b;
+
+	a = *stack_a;
+	b = *stack_b;
+	while (b)
+	{
+		if (half_stack_big(&b) == 1)
+		{
+			if (b->nbr == find_biggest(b))
+				pa(&b, &a);
+			else
+				rb(&b);
+		}
+		else if (half_stack_big(&b) == 2)
+		{
+			if (b->nbr == find_biggest(b))
+				pa(&b, &a);
+			else
+				rrb(&b);
+		}
+	}
+	*stack_a = a;
+	*stack_b = b;
+}
+
+/* void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
 	int		cheapest;
 	int		i;
@@ -93,7 +216,7 @@ void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 	current_a = *stack_a;
 	current_b = *stack_b;
 	i = 1;
-	/* printf("current tail: %d\n", current_a->nbr); */
+	printf("current tail: %d\n", current_a->nbr);
 	cheapest = cheapest_move(current_a, current_b);
 	if (cheapest == 0)
 		return ;
@@ -151,3 +274,4 @@ void	move_b_to_a(t_stack **stack_a, t_stack **stack_b)
 	print_stack(*stack_a, *stack_b);
 }
 
+ */

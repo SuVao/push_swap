@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/21 18:27:58 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/24 16:46:10 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,5 +78,9 @@ void	move_a_to_b(t_stack **stack_a, t_stack **stack_b);
 void	move_b_to_a(t_stack **stack_a, t_stack **stack_b);
 void	*quick_sort(t_stack *stack_a, t_stack *stack_b);
 int rev_is_sort(t_stack *stack);
-
+void cheapest_a_to_b(t_stack **stack_a, t_stack **stack_b);
+int half_stack_small(t_stack **stacks);
+int	is_the_small(int nbr, t_stack *stack);
+int half_stack_big(t_stack **stacks);
+void cheapest_b_to_a(t_stack **stack_a, t_stack **stack_b);
 #endif

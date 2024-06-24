@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:50:39 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/20 16:26:40 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/24 15:29:42 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,13 +96,13 @@ void	print_stack(t_stack *stack_a, t_stack *stack_b)
 	printf("\n");
 	while (tmp1)
 	{
-		printf("%i\n", tmp1->nbr);
+		printf("%i\tindex:%i\n", tmp1->nbr, tmp1->index);
 		tmp1 = tmp1->next;
 	}
 	printf("\nA\n\n");
 	while (tmp2)
 	{
-		printf("%i\n", tmp2->nbr);
+		printf("%i\tindex:%i\n", tmp2->nbr, tmp2->index);
 		tmp2 = tmp2->next;
 	}
 	printf("\nB\n\n");

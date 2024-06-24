@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:05:46 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/22 16:02:59 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/24 16:45:21 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,17 +104,9 @@ void	*sort(t_stack *stack_a, t_stack *stack_b)
 
 	size = stack_size(stack_a);
 	i = 0;
-	pb(&stack_a, &stack_b);
-	pb(&stack_a, &stack_b);
+	cheapest_a_to_b(&stack_a, &stack_b);
+	cheapest_b_to_a(&stack_a, &stack_b);
 	print_stack(stack_a, stack_b);
-
-	while(stack_size(stack_a) > 3)
-		move_a_to_b(&stack_a, &stack_b);
-	print_stack(stack_a, stack_b);
-	stack_a = sort_3(stack_a);
-	while (stack_size(stack_b) != 0)
-		move_b_to_a(&stack_a, &stack_b);
-	
 	if (!is_sorted(stack_a))
 		stack_a = sort(stack_a, stack_b);
 	return (stack_a);

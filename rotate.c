@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:58:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/17 14:52:51 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/24 16:07:06 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,6 +107,7 @@ int	main()
 {
 	t_stack	*a;
 	t_stack	*tmp;
+	t_stack *tmp1;
 	
 	a = NULL;
 	a = malloc(sizeof(t_stack));
@@ -117,13 +118,14 @@ int	main()
 	a->next->next->nbr = 3;
 	a->next->next->next = NULL;
 	printf("antes:\n");
-	while (a)
+	tmp1 = a;
+	while (tmp1)
 	{
-		printf("%d\n", a->nbr);
-		a = a->next;
+		printf("%d\n", tmp1->nbr);
+		tmp1 = tmp1->next;
 	}
 	tmp = a;
-	ra(&a);
+	ra(&tmp);
 	printf("depois:\n");
 	while (tmp)
 	{
