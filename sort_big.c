@@ -6,12 +6,12 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:05:46 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/24 16:45:21 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/26 16:24:59 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
+/* 
 int	find_pivot(t_stack *stack)
 {
 	int		pivot;
@@ -24,20 +24,7 @@ int	find_pivot(t_stack *stack)
 	return (pivot);
 }
 
-int	rev_is_sort(t_stack *stack)
-{
-	t_stack	*current;
-
-	current = stack;
-	while (current->next)
-	{
-		if (current->nbr > current->next->nbr)
-			return (0);
-		current = current->next;
-	}
-	return (1);
-}
-
+ */
 /* void	*quicksort(t_stack *stack_a, t_stack *stack_b)
 {
 	int pivot;
@@ -66,7 +53,8 @@ int	rev_is_sort(t_stack *stack)
 			pa(&current_a, &current_b);
 			ra(&current_a);
 		}
-		else
+		else	pb(&stack_a, &stack_b);
+
 			pa(&current_a, &current_b);
 	}
 	pivot = find_biggest(current_b);
@@ -99,13 +87,11 @@ int	rev_is_sort(t_stack *stack)
 
 void	*sort(t_stack *stack_a, t_stack *stack_b)
 {
-	int i;
-	int size;
-
-	size = stack_size(stack_a);
-	i = 0;
-	cheapest_a_to_b(&stack_a, &stack_b);
-	cheapest_b_to_a(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	pb(&stack_a, &stack_b);
+	while (stack_size(stack_a) > 3)
+		move_a_to_b(stack_a, stack_b);
+	
 	print_stack(stack_a, stack_b);
 	if (!is_sorted(stack_a))
 		stack_a = sort(stack_a, stack_b);

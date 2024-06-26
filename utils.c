@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:09:02 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/24 16:37:37 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/26 17:56:05 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,13 +122,13 @@ int half_stack_small(t_stack **stacks)
 	return (0);
 }
 
-int half_stack_big(t_stack **stacks)
+int half_stack_big(t_stack *current, t_stack *stacks)
 {
 	int biggest;
 	int size;
 	t_stack *stack;
 	
-	stack = *stacks;
+	stack = stacks;
 	if (stack_size(stack) % 2 == 0)
 		size = stack_size(stack) / 2;
 	else 
@@ -148,34 +148,17 @@ int half_stack_big(t_stack **stacks)
 	return (0);
 }
 
-void cheapest_a_to_b(t_stack **stack_a, t_stack **stack_b)
+static int	cheapest_a_to_b(t_stack *current, t_stack *stack_a)
 {
-	t_stack	*tmpa;
-	t_stack *tmpb;
-
-	tmpa = *stack_a;
-	tmpb = *stack_b;
-	while (tmpa)
-	{
-		if (half_stack_small(&tmpa) == 1)
-		{
-			if (tmpa->nbr == find_smallest(tmpa))
-			{
-				pb(&tmpa, &tmpb);
-			}
-			else
-				ra(&tmpa);
-		}
-		else if (half_stack_small(&tmpa) == 2)
-		{
-			if (tmpa->nbr == find_smallest(tmpa))
-				pb(&tmpa, &tmpb);
-			else
-				rra(&tmpa);
-		}
-	}
-	*stack_a = tmpa;
-	*stack_b = tmpb;
+	int	moves;
+	
+	if (!current || !stack_a)
+		return (0);
+	if (half_stack_size(stack_a))
+		moves = current->index + 1;
+	else
+		moves = ((stack_size(stack_a) - 1) - current->index + 2);
+	return (moves);
 }
 
 void cheapest_b_to_a(t_stack **stack_a, t_stack **stack_b)
@@ -206,11 +189,11 @@ void cheapest_b_to_a(t_stack **stack_a, t_stack **stack_b)
 	*stack_b = b;
 }
 
-/* void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
+void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
 	int		cheapest;
-	int		i;
-	t_stack	*current_a;
+	int		moves;
+	t_stack	*best;
 	t_stack	*current_b;
 	
 	current_a = *stack_a;

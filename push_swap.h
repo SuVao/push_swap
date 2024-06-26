@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/24 16:46:10 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/24 17:11:43 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,12 @@ typedef	struct s_stack
 	struct s_stack	*next;
 	struct s_stack	*prev;
 }				t_stack;
+
+typedef struct s_data
+{
+	int	moves;
+}	t_data;
+
 
 /*--------acoes-------*/
 
