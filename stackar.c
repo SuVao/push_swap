@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:46:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/17 13:44:38 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:44:13 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,7 @@ t_stack *stackar_split(char **av)
 	
 	head = NULL;
 	tail = NULL;
-	i = 1;
+	i = 0;
 	while (*++av)
 	{
 		new_node = malloc(sizeof(t_stack));
@@ -109,3 +109,21 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new)
 	*lst = new;
 }
 
+t_stack	*ft_thelast(t_stack *lst)
+{
+	t_stack *last;
+
+	last = NULL;
+	if (!lst)
+		return (NULL);
+	while (lst)
+	{
+		if (lst->next == NULL)
+		{
+			last = lst;
+			return (last);
+		}
+		lst = lst->next;
+	}
+	return (last);
+}

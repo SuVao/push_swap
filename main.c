@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:24:42 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/22 15:41:40 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/27 16:30:41 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,11 @@ int main(int ac, char **av)
 	else
 		printf("stack is sorted\n");
 	if (stack_size(a) == 3)
-		a = sort_3(a);
+		sort_3(a);
 	else if (stack_size(a) == 5)
 		a = sort_5(a, b);
 	else
-		a = sort(a, b);
+		sort(&a, &b);
 /* 	printf("+++++++++++++++++++++++ AFTER ================= \n\n"); */
 	if (is_sorted(a))
 		printf("stack is sorted\n");

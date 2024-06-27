@@ -6,13 +6,13 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:06:41 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/21 13:17:45 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/27 16:31:50 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*sort_3(t_stack *stack_a)
+void	sort_3(t_stack *stack_a)
 {
 	int		a;
 	int		b;
@@ -37,5 +37,4 @@ t_stack	*sort_3(t_stack *stack_a)
 	}
 	else if (a < b && b > c && a > c)
 		rra(&stack_a);
-	return (stack_a);
 }

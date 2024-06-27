@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:50:39 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/24 15:29:42 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:53:50 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,15 @@ char	**ft_split(char *s)
 	return (mat);
 }
 
-
+int the_lower_nbr(int a, int b)
+{
+	if (a < b)
+		return (a);
+	else if (a > b)
+		return (b);
+	else
+		return (0);
+}
 
 void	print_stack(t_stack *stack_a, t_stack *stack_b)
 {

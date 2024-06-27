@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:58:21 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/16 23:07:14 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/27 15:42:41 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -116,7 +116,7 @@ void	update_index(t_stack *source)
 	t_stack	*tmp;
 
 	tmp = source;
-	index = 1;
+	index = 0;
 	while (tmp)
 	{
 		tmp->index = index;

@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:01:44 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/20 17:36:17 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/27 16:35:10 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static void	push(t_stack **stack_a, t_stack **stack_b)
 void	pa(t_stack **stack_a, t_stack **stack_b)
 {
 
-	push(stack_a, stack_b);
+	push(stack_b, stack_a);
 	printf("pa\n");
 }
 
