@@ -6,37 +6,16 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 17:29:44 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/27 17:45:34 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/28 14:23:07 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*smaller_node(t_stack *stack)
-{
-	t_stack *smaller;
-	int	smallest;
-
-	smaller = stack;
-	smallest = smaller->nbr;
-	stack = stack->next;
-	while (stack)
-	{
-		if (stack->nbr < smallest)
-		{
-			smallest = smaller->nbr;
-			smaller = stack;
-		}
-		stack = stack->next;
-	}
-	return (smaller);
-}
-
-
 static int	a_moves(t_stack *current, t_stack *stack_a)
 {
 	int	moves;
-	
+
 	if (!current || !stack_a)
 		return (0);
 	if (half_stack_small(current, stack_a))
@@ -49,7 +28,7 @@ static int	a_moves(t_stack *current, t_stack *stack_a)
 static int	b_moves(t_stack *current, t_stack *stack_b)
 {
 	int	moves;
-	
+
 	if (!current || !stack_b)
 		return (0);
 	if (half_stack_small(current, stack_b))
@@ -59,67 +38,10 @@ static int	b_moves(t_stack *current, t_stack *stack_b)
 	return (moves);
 }
 
-static t_stack	*find_target_on_b(int nbr ,t_stack *stack)
+static int	saving(t_stack *current, t_stack *target, t_stack *a, t_stack *b)
 {
-	t_stack *target;
-	int init;
-	int bigger;
-
-	if (!stack)
-		return (NULL);
-	init = 0;
-	while (stack)
-	{
-		if (init == 0 && stack->nbr < nbr)
-		{
-			bigger = stack->nbr;
-			target = stack;
-			init++;
-		}
-		if (init != 0 && stack->nbr < nbr && stack->nbr > bigger)
-		{
-			target = stack;
-			bigger = stack->nbr;
-		}
-		stack = stack->next;
-	}
-	return (target);
-}
-
-t_stack *target_(int nbr, t_stack *stack_b)
-{
-	t_stack	*smaller;
-
-	if (!stack_b)
-		return (NULL);
-	if (is_smaller(nbr, stack_b))
-	{
-		smaller = smaller_node(stack_b);
-		if (smaller->next == NULL)
-			return (NULL);
-		else
-			return (smaller->next);
-	}
-	return (find_target_on_b(nbr, stack_b));
-}
-
-int is_smaller(int nbr, t_stack *stack)
-{
-	if (!stack)
-		return (0);
-	while (stack)
-	{
-		if (stack->nbr < nbr)
-			return (0);
-		stack = stack->next;
-	}
-	return (1);
-}
-
-static int saving(t_stack *current, t_stack *target, t_stack *a, t_stack *b)
-{
-	int current_;
-	int target_;
+	int	current_;
+	int	target_;
 
 	if (!current || !target || !a || !b)
 		return (0);
@@ -146,8 +68,8 @@ static int saving(t_stack *current, t_stack *target, t_stack *a, t_stack *b)
 
 int	calcula_moves(t_stack *current, t_stack *a, t_stack *b)
 {
-	int moves;
-	t_stack *target;
+	t_stack	*target;
+	int		moves;
 
 	if (!current || !a || !b)
 		return (0);

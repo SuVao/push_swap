@@ -6,7 +6,7 @@
 #    By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/08 15:15:44 by pesilva-          #+#    #+#              #
-#    Updated: 2024/06/27 14:24:07 by pesilva-         ###   ########.fr        #
+#    Updated: 2024/06/28 14:22:16 by pesilva-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,7 +30,10 @@ SRC = 	main.c \
 		stackar.c \
 		str_utils.c \
 		checkagem.c \
-		calc_moves.c
+		calc_moves.c \
+		calc_moves2.c \
+		utils2.c \
+		utils3.c \
 
 OBJ = ${SRC:.c=.o}
 

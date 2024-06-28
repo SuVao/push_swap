@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:58:21 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/27 15:42:41 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/28 14:16:51 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	is_sorted(t_stack *a)
 	return (1);
 }
 
-static int ft_isdigit(int c)
+static int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
@@ -34,7 +34,7 @@ static int ft_isdigit(int c)
 int	nbr_check(char **str)
 {
 	int	i;
-	int j;
+	int	j;
 
 	i = 1;
 	j = 0;
@@ -43,9 +43,10 @@ int	nbr_check(char **str)
 		j = 0;
 		while (str[i][j])
 		{
-			if (!ft_isdigit(str[i][j]) && str[i][j] != '-' && str[i][j] != '+' && str[i][j] != '"')
+			if (!ft_isdigit(str[i][j]) && str[i][j] != '-' && \
+				str[i][j] != '+' && str[i][j] != '"')
 			{
-				printf("Charater detected!\n");
+				write(1, "Charater detected!\n", 20);
 				return (0);
 			}
 			j++;
@@ -68,7 +69,7 @@ int	check_nbr(t_stack *a)
 		{
 			if (tmp->nbr == tmp2->nbr)
 			{
-				printf("Numero repetido!\n");
+				write(1, "Numero repetido!\n", 18);
 				return (0);
 			}
 			tmp2 = tmp2->next;
@@ -82,7 +83,7 @@ int	stack_size(t_stack *a)
 {
 	int		count;
 	t_stack	*tmp;
-	
+
 	count = 0;
 	tmp = a;
 	while (tmp)
@@ -91,36 +92,4 @@ int	stack_size(t_stack *a)
 		tmp = tmp->next;
 	}
 	return (count);
-}
-
-void printNodeDetail(t_stack *node)
-{
-	if(!node)
-	{
-		printf("The pointer is null!\n");
-		return ;
-	}
-
-	printf("================ NODE ==================\n");
-	printf("Number: %d\n", node->nbr);
-	printf("Index: %d\n", node->index);
-	printf("Next Ptr: %p\n", node->next);
-	printf("Prev Ptr: %p\n", node->prev);
-	
-	
-}
-
-void	update_index(t_stack *source)
-{
-	int		index;
-	t_stack	*tmp;
-
-	tmp = source;
-	index = 0;
-	while (tmp)
-	{
-		tmp->index = index;
-		tmp = tmp->next;
-		index++;
-	}
 }

@@ -1,40 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/28 11:24:42 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/28 14:20:24 by pesilva-         ###   ########.fr       */
+/*   Created: 2024/06/28 14:18:39 by pesilva-          #+#    #+#             */
+/*   Updated: 2024/06/28 14:19:53 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int ac, char **av)
+int	find_smallest(t_stack *stack)
 {
-	t_stack	*a;
-	t_stack	*b;
+	int		smallest;
+	t_stack	*current;
 
-	a = NULL;
-	b = NULL;
-	if (ac == 1 || (ac == 2 && !av[1][0]))
-		return (-1);
-	a = stackar_split(av);
-	if (!nbr_check(av))
-		return (-1);
-	if (!check_nbr(a))
-		return (-1);
-	if (stack_size(a) == 3)
-		sort_3(a);
-	else if (stack_size(a) == 5)
-		a = sort_5(a, b);
-	else
-		sort(&a, &b);
-	if (is_sorted(a))
-		write(1, "stack is sorted\n", 17);
-	free_stack(a);
-	free_stack(b);
+	current = stack;
+	smallest = current->nbr;
+	while (current)
+	{
+		if (current->nbr < smallest)
+			smallest = current->nbr;
+		current = current->next;
+	}
+	return (smallest);
+}
+
+int	is_the_small(int nbr, t_stack *stack)
+{
+	if (!stack)
+		return (0);
+	while (stack->next)
+	{
+		if (stack->nbr == find_smallest(stack))
+			return (1);
+		stack = stack->next;
+	}
 	return (0);
 }

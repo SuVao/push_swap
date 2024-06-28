@@ -6,18 +6,17 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:46:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/27 15:44:13 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/28 13:30:08 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-int ft_atoi(char *n)
+int	ft_atoi(char *n)
 {
-	int i;
-	int sign;
-	int res;
+	int	i;
+	int	sign;
+	int	res;
 
 	res = 0;
 	sign = 1;
@@ -38,50 +37,13 @@ int ft_atoi(char *n)
 	return (res * sign);
 }
 
-/* t_stack *stackar_split(char **av)
+t_stack	*stackar_split(char **av)
 {
-	int		i;
-	static char	**args;
 	t_stack	*head;
 	t_stack	*new_node;
 	t_stack	*tail;
-	
-	head = NULL;
-	tail = NULL;
-	i = 1;
-	while (*++av)
-	{
-		args = ft_split(*av);
-		while (*args)
-		{
-			new_node = malloc(sizeof(t_stack));
-			if (!new_node)
-				return (NULL);
-			new_node->nbr = ft_atoi(*args);
-			new_node->index = i++;
-			new_node->next = NULL;
-			new_node->prev = tail;
-			if (!head)
-				head = new_node;
-			if (tail)
-				tail->next = new_node;
-			tail = new_node;
-			printf("%p\n", args);
-			if (*args)
-				free(*args);
-			args++;
-		}
-	}
-	return (head);
-} */
+	int		i;
 
-t_stack *stackar_split(char **av)
-{
-	int		i;
-	t_stack	*head;
-	t_stack	*new_node;
-	t_stack	*tail;
-	
 	head = NULL;
 	tail = NULL;
 	i = 0;
@@ -111,7 +73,7 @@ void	ft_lstadd_front(t_stack **lst, t_stack *new)
 
 t_stack	*ft_thelast(t_stack *lst)
 {
-	t_stack *last;
+	t_stack	*last;
 
 	last = NULL;
 	if (!lst)

@@ -6,13 +6,13 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/07 14:00:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/12 14:32:47 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/28 13:22:00 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void free_stack(t_stack *stack_a)
+void	free_stack(t_stack *stack_a)
 {
 	t_stack	*tmp;
 

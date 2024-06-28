@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:36:34 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/17 14:51:48 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/28 13:26:53 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	swap(t_stack *stack)
 	int	tmp;
 
 	if (stack_size(stack) < 2)
-		return;
+		return ;
 	tmp = stack->nbr;
 	stack->nbr = stack->next->nbr;
 	stack->next->nbr = tmp;
@@ -25,22 +25,25 @@ static void	swap(t_stack *stack)
 
 void	sa(t_stack *stack_a)
 {
+	if (stack_a->next == NULL)
+		return ;
 	swap(stack_a);
-	printf("sa\n");
+	write(1, "sa\n", 3);
 }
 
 void	sb(t_stack *stack_b)
 {
 	if (stack_b->next == NULL)
-		return;
+		return ;
 	swap(stack_b);
-	printf("sb\n");
+	write(1, "sb\n", 3);
 }
 
 void	ss(t_stack *stack_a, t_stack *stack_b)
 {
+	if (stack_a->next == NULL || stack_b->next == NULL)
+		return ;
 	swap(stack_a);
 	swap(stack_b);
-	printf("ss\n");
+	write(1, "ss\n", 3);
 }
-

@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:12:03 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/27 16:32:18 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/28 14:11:35 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*sort_5(t_stack *stack_a, t_stack *stack_b)
 {
-	int		menor;
+	int	menor;
 
 	menor = find_smallest(stack_a);
 	while (stack_a->nbr != menor)

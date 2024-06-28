@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:02:45 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/24 17:12:23 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/28 13:15:43 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,19 +33,18 @@ static void	rev_rotate(t_stack **stack)
 void	rra(t_stack **stack_a)
 {
 	rev_rotate(stack_a);
-	printf("rra\n");
-
+	write(1, "rra\n", 4);
 }
 
 void	rrb(t_stack **stack_b)
 {
 	rev_rotate(stack_b);
-	printf("rrb\n");
+	write(1, "rrb\n", 4);
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	rev_rotate(stack_a);
 	rev_rotate(stack_b);
-	printf("rrr\n");
+	write(1, "rrr\n", 4);
 }

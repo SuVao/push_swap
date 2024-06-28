@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:06:41 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/27 16:31:50 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/28 13:26:10 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,10 @@
 
 void	sort_3(t_stack *stack_a)
 {
-	int		a;
-	int		b;
-	int		c;
-	
+	int	a;
+	int	b;
+	int	c;
+
 	a = stack_a->nbr;
 	b = stack_a->next->nbr;
 	c = stack_a->next->next->nbr;
