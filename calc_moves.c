@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 17:29:44 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/28 14:23:07 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/29 15:56:27 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ static int	a_moves(t_stack *current, t_stack *stack_a)
 	if (!current || !stack_a)
 		return (0);
 	if (half_stack_small(current, stack_a))
-		moves = current->index + 1;
+		moves = (current->index + 1);
 	else
-		moves = ((stack_size(stack_a) - 1) - current->index + 2);
+		moves = ((stack_size(stack_a) - 1) - (current->index) + 2);
 	return (moves);
 }
 
@@ -34,7 +34,7 @@ static int	b_moves(t_stack *current, t_stack *stack_b)
 	if (half_stack_small(current, stack_b))
 		moves = current->index;
 	else
-		moves = ((stack_size(stack_b) - 1) - current->index + 1);
+		moves = ((stack_size(stack_b) - 1) - (current->index) + 1);
 	return (moves);
 }
 
@@ -77,7 +77,7 @@ int	calcula_moves(t_stack *current, t_stack *a, t_stack *b)
 	target = target_(current->nbr, b);
 	if (!target)
 		return (++moves);
-	if (target->index == 1)
+	if (target->index == 0)
 		return (moves);
 	moves += b_moves(target, b);
 	moves -= saving(current, target, a, b);

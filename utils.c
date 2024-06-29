@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:09:02 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/28 14:25:06 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/29 16:05:35 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,10 @@ int	half_stack_small(t_stack *current, t_stack *stack)
 
 	if (!current || !stack)
 		return (0);
-	if (stack_size(stack) % 2 == 0)
-		center = stack_size(stack) / 2;
+	if (its_par(stack_size(stack)))
+		center = ((stack_size(stack) / 2) + 1);
 	else
-		center = stack_size(stack) / 2 + 1;
+		center = stack_size(stack) / 2;
 	if (current->index + 1 <= center)
 		return (1);
 	else

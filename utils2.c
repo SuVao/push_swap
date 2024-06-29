@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 14:16:37 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/28 14:24:46 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/29 16:20:27 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	making(t_stack *stack, t_stack *target, t_stack **a, t_stack **b)
 	}
 	else
 	{
-		if (!half_stack_small(target, *b) && target)
+		if (!half_stack_small(target, *b) && (target))
 		{
 			while (stack->index != 0 && target->index != 0)
 				rrr(a, b);
@@ -49,8 +49,8 @@ void	update_index(t_stack *source)
 	while (tmp)
 	{
 		tmp->index = index;
-		tmp = tmp->next;
 		index++;
+		tmp = tmp->next;
 	}
 }
 
@@ -81,11 +81,11 @@ t_stack	*ft_lstlast(t_stack *lst)
 
 void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
-	int		cheapest;
-	int		moves;
 	t_stack	*best;
 	t_stack	*target;
 	t_stack	*tmp;
+	int		moves;
+	int		cheapest;
 
 	if (!*stack_a)
 		return ;

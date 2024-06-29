@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/28 14:11:07 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/29 16:05:05 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 /* # include "../libft/libft.h" */
 
 typedef struct s_stack
@@ -76,12 +77,11 @@ t_stack	*ft_thelast(t_stack *lst);
 t_stack	*target_(int nbr, t_stack *stack_b);
 int		is_smaller(int nbr, t_stack *stack);
 void	move_to_b(t_stack **stack_a, t_stack **stack_b, t_stack *target);
-void	move_to_a(t_stack **stack_a, t_stack **stack_b, t_stack *target);
-void	cheapest_b_to_a(t_stack **stack_a, t_stack **stack_b);
 t_stack	*current_bigger(t_stack *stack);
 int		calcula_moves(t_stack *current, t_stack *a, t_stack *b);
 void	move_a_to_b(t_stack **stack_a, t_stack **stack_b);
 t_stack	*smaller_node(t_stack *stack);
 int		the_lower_nbr(int a, int b);
+int		its_par(int nbr);
 
 #endif

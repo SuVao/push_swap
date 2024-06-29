@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:58:21 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/28 14:16:51 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/29 15:15:22 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,14 +82,14 @@ int	check_nbr(t_stack *a)
 int	stack_size(t_stack *a)
 {
 	int		count;
-	t_stack	*tmp;
 
+	if (!a)
+		return (0);
 	count = 0;
-	tmp = a;
-	while (tmp)
+	while (a)
 	{
 		count++;
-		tmp = tmp->next;
+		a = a->next;
 	}
 	return (count);
 }

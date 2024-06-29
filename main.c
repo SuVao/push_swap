@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:24:42 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/28 14:20:24 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/29 15:04:36 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,12 @@ int	main(int ac, char **av)
 		sort(&a, &b);
 	if (is_sorted(a))
 		write(1, "stack is sorted\n", 17);
+	else
+		write(1, "stack is not sorted\n", 21);
+	// print_stack(a, b);
 	free_stack(a);
 	free_stack(b);
+	// printf("size of A: %lu, size of B: %lu\n", sizeof(a), sizeof(b));
+	// printf("size of t_stack: %lu\n", sizeof(t_stack));
 	return (0);
 }

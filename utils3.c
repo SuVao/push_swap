@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 14:18:39 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/28 14:19:53 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/29 16:04:49 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,11 @@ int	is_the_small(int nbr, t_stack *stack)
 		stack = stack->next;
 	}
 	return (0);
+}
+int its_par(int nbr)
+{
+	if (nbr % 2 == 0)
+		return (0);
+	else
+		return (1);
 }
