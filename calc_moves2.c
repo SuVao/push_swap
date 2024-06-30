@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 14:14:23 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/28 14:23:18 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/30 12:56:40 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static t_stack	*find_target_on_b(int nbr, t_stack *stack)
 			target = stack;
 			init++;
 		}
-		if (init != 0 && stack->nbr < nbr && stack->nbr > bigger)
+		if (init != 0 && nbr > stack->nbr && stack->nbr > bigger)
 		{
 			target = stack;
 			bigger = stack->nbr;
@@ -81,8 +81,8 @@ t_stack	*smaller_node(t_stack *stack)
 	{
 		if (stack->nbr < smallest)
 		{
-			smallest = smaller->nbr;
 			smaller = stack;
+			smallest = smaller->nbr;
 		}
 		stack = stack->next;
 	}

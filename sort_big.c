@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
+/*   By: pesilva- <pesilva-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:05:46 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/29 16:17:31 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/30 15:13:39 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	sort(t_stack **stack_a, t_stack **stack_b)
 	pb(stack_a, stack_b);
 	while (stack_size(*stack_a) > 3)
 		move_a_to_b(stack_a, stack_b);
-	sort_3(*stack_a);
+	sort_3(stack_a);
 	resorting_b(stack_b);
 	while (stack_size(*stack_b) > 0)
 	{

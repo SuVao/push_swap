@@ -6,7 +6,7 @@
 #    By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/08 15:15:44 by pesilva-          #+#    #+#              #
-#    Updated: 2024/06/28 14:22:16 by pesilva-         ###   ########.fr        #
+#    Updated: 2024/06/30 13:36:46 by pesilva-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ SRC = 	main.c \
 		swap.c \
 		utils.c \
 		sort_3.c \
-		sort_5.c \
+		sort_4.c \
 		sort_big.c \
 		stackar.c \
 		str_utils.c \
