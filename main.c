@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:24:42 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/30 15:12:08 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/30 15:32:53 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,5 @@ int	main(int ac, char **av)
 		write(1, "stack is not sorted\n", 21);
 	free_stack(a);
 	free_stack(b);
-
 	return (0);
 }

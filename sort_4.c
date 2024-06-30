@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/13 15:12:03 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/30 15:11:58 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/06/30 15:30:55 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	sort_4(t_stack **stack_a, t_stack **stack_b)
 {
-	int rep;
+	int	rep;
 
 	rep = 3;
 	pb(stack_a, stack_b);
@@ -32,4 +32,3 @@ void	sort_4(t_stack **stack_a, t_stack **stack_b)
 	while (rep-- > 0)
 		rra(stack_a);
 }
-
