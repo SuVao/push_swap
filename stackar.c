@@ -6,17 +6,17 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:46:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/28 13:30:08 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/07/03 20:29:54 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_atoi(char *n)
+long	ft_atol(char *n)
 {
 	int	i;
 	int	sign;
-	int	res;
+	long	res;
 
 	res = 0;
 	sign = 1;
@@ -52,7 +52,7 @@ t_stack	*stackar_split(char **av)
 		new_node = malloc(sizeof(t_stack));
 		if (!new_node)
 			return (NULL);
-		new_node->nbr = ft_atoi(*av);
+		new_node->nbr = ft_atol(*av);
 		new_node->index = i++;
 		new_node->next = NULL;
 		new_node->prev = tail;

@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:58:21 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/29 15:15:22 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/07/03 20:29:25 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,11 @@ int	check_nbr(t_stack *a)
 	tmp = a;
 	while (tmp)
 	{
+		if (tmp->nbr > INT_MAX || tmp->nbr < INT_MIN)
+		{
+			write(1, "Numero fora do range!\n", 23);
+			return (0);
+		}
 		tmp2 = tmp->next;
 		while (tmp2)
 		{
