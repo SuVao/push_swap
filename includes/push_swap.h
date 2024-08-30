@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/07/03 20:23:53 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/08/30 16:49:58 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,13 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-
-#define	INT_MAX 2147483647
-#define	INT_MIN -2147483648
+/* # include "../libft/libft.h" */
 
 typedef struct s_stack
 {
 	struct s_stack	*next;
 	struct s_stack	*prev;
-	long				nbr;
+	int				nbr;
 	int				index;
 }				t_stack;
 
@@ -64,14 +62,14 @@ void	sort(t_stack **stack_a, t_stack **stack_b);
 
 void	free_stack(t_stack *stack_a);
 int		check_nbr(t_stack *stack);
-int		is_sorted(t_stack *stack);
+/* int		is_sorted(t_stack *stack); */
 
 /*-------utils--------*/
 
-long int	ft_atol(char *n);
-void		update_index(t_stack *source);
-void		print_stack(t_stack *stack_a, t_stack *stack_b);
-int			nbr_check(char **str);
+void	update_index(t_stack *source);
+/* void	print_stack(t_stack *stack_a, t_stack *stack_b); */
+int		ft_atoi(char *n);
+int		nbr_check(char **str);
 
 /*-------stack--------*/
 
@@ -88,7 +86,6 @@ int		stack_size(t_stack *stack);
 int		find_biggest(t_stack *stack);
 int		find_smallest(t_stack *stack);
 int		half_stack_small(t_stack *current, t_stack *stack);
-int		is_the_small(int nbr, t_stack *stack);
 int		is_smaller(int nbr, t_stack *stack);
 int		calcula_moves(t_stack *current, t_stack *a, t_stack *b);
 int		the_lower_nbr(int a, int b);

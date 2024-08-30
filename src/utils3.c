@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   utils3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pesilva- <pesilva-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 14:18:39 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/30 15:33:28 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/08/30 16:00:28 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//this function see which number is the smaller
 int	find_smallest(t_stack *stack)
 {
 	int		smallest;
@@ -26,19 +27,6 @@ int	find_smallest(t_stack *stack)
 		current = current->next;
 	}
 	return (smallest);
-}
-
-int	is_the_small(int nbr, t_stack *stack)
-{
-	if (!stack)
-		return (0);
-	while (stack->next)
-	{
-		if (stack->nbr == find_smallest(stack))
-			return (1);
-		stack = stack->next;
-	}
-	return (0);
 }
 
 int	its_par(int nbr)

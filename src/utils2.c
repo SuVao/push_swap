@@ -6,12 +6,13 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 14:16:37 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/29 16:20:27 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/08/30 16:35:47 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//this fuction make the moves
 static void	making(t_stack *stack, t_stack *target, t_stack **a, t_stack **b)
 {
 	if (!stack || !a || !b)

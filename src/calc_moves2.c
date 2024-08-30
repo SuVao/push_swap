@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 14:14:23 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/30 12:56:40 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/08/30 16:50:32 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int	is_smaller(int nbr, t_stack *stack)
 	return (1);
 }
 
+//this function finds the targets on the stack b
 static t_stack	*find_target_on_b(int nbr, t_stack *stack)
 {
 	t_stack	*target;
@@ -52,6 +53,7 @@ static t_stack	*find_target_on_b(int nbr, t_stack *stack)
 	return (target);
 }
 
+//this function compares the number with the smaller of the stack b
 t_stack	*target_(int nbr, t_stack *stack_b)
 {
 	t_stack	*smaller;
@@ -69,6 +71,7 @@ t_stack	*target_(int nbr, t_stack *stack_b)
 	return (find_target_on_b(nbr, stack_b));
 }
 
+//this function finds the smaller node in the stack
 t_stack	*smaller_node(t_stack *stack)
 {
 	t_stack	*smaller;

@@ -6,16 +6,17 @@
 #    By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/08 15:15:44 by pesilva-          #+#    #+#              #
-#    Updated: 2024/06/30 13:36:46 by pesilva-         ###   ########.fr        #
+#    Updated: 2024/08/30 14:38:26 by pesilva-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 
 CC = cc
-
 RM = rm -f
-FLAGS = -Wall -Werror -Wextra
+FLAGS = -Wall -Werror -Wextra -g
+INCLUDES = ./includes/
+SRC_DIR = ./src/
 
 SRC = 	main.c \
 		ft_free.c \
@@ -37,21 +38,23 @@ SRC = 	main.c \
 
 OBJ = ${SRC:.c=.o}
 
-.c.o:
-	${CC} -c $< -o ${<:.c=.o}
+SRC := $(addprefix $(SRC_DIR), $(SRC))
+OBJ := $(SRC:.c=.o)
+
+%.o: %.c
+	${CC} ${FLAGS} -I${INCLUDES} -c $< -o $@
 
 ${NAME}: ${OBJ}
 	${CC} ${FLAGS} ${OBJ} -o ${NAME}
-	
 
 all: ${NAME}
 
 clean:
-	${RM} ${OBJ} ${NAME}
+	${RM} ${OBJ}
 
 fclean: clean
 	${RM} ${NAME}
 
-re: clean all
+re: fclean all
 
-.PHONY: all clean fclean re bonus
+.PHONY: all clean fclean re

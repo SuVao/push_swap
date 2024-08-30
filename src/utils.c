@@ -6,12 +6,13 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:09:02 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/29 16:05:35 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/08/30 16:50:56 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//this function sees if it is odd or pair to decide if the number of the middle
 int	half_stack_small(t_stack *current, t_stack *stack)
 {
 	int	center;
@@ -44,32 +45,7 @@ int	find_biggest(t_stack *stack)
 	return (biggest);
 }
 
-static int	a_moves(t_stack *current, t_stack *stack_a)
-{
-	int	moves;
-
-	if (!current || !stack_a)
-		return (0);
-	if (!half_stack_small(current, stack_a))
-		moves = current->index + 1;
-	else
-		moves = ((stack_size(stack_a) - 1) - current->index + 2);
-	return (moves);
-}
-
-static int	b_moves(t_stack *current, t_stack *stack_b)
-{
-	int	moves;
-
-	if (!current || !stack_b)
-		return (0);
-	if (half_stack_small(current, stack_b))
-		moves = current->index;
-	else
-		moves = ((stack_size(stack_b) - 1) - current->index + 1);
-	return (moves);
-}
-
+//this function makes the move from stack a to stack b with the target node 
 void	move_to_b(t_stack **stack_a, t_stack **stack_b, t_stack *target)
 {
 	if (!stack_a || !stack_b)

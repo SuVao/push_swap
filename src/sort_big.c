@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   sort_big.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pesilva- <pesilva-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:05:46 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/30 15:13:39 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/08/30 16:50:43 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ t_stack	*current_bigger(t_stack *stack)
 	return (bigger);
 }
 
+//this function make the resorting of the stack b
 void	resorting_b(t_stack **stack_b)
 {
 	t_stack	*bigger;
@@ -49,6 +50,7 @@ void	resorting_b(t_stack **stack_b)
 	}
 }
 
+//this function is the main sorting
 void	sort(t_stack **stack_a, t_stack **stack_b)
 {
 	int	regroup;

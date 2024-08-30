@@ -6,13 +6,13 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:58:21 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/07/03 20:29:25 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/08/30 16:42:32 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_stack *a)
+/* int	is_sorted(t_stack *a)
 {
 	t_stack	*tmp;
 
@@ -24,7 +24,7 @@ int	is_sorted(t_stack *a)
 		tmp = tmp->next;
 	}
 	return (1);
-}
+} */
 
 static int	ft_isdigit(int c)
 {
@@ -64,11 +64,6 @@ int	check_nbr(t_stack *a)
 	tmp = a;
 	while (tmp)
 	{
-		if (tmp->nbr > INT_MAX || tmp->nbr < INT_MIN)
-		{
-			write(1, "Numero fora do range!\n", 23);
-			return (0);
-		}
 		tmp2 = tmp->next;
 		while (tmp2)
 		{

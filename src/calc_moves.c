@@ -6,12 +6,14 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 17:29:44 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/29 15:56:27 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/08/30 16:52:21 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+//this funstion makes the calculation how many moves need to
+//put in the right position on a stack
 static int	a_moves(t_stack *current, t_stack *stack_a)
 {
 	int	moves;
@@ -25,6 +27,8 @@ static int	a_moves(t_stack *current, t_stack *stack_a)
 	return (moves);
 }
 
+//this funstion makes the calculation how many moves need to
+//put in the right position on b stack
 static int	b_moves(t_stack *current, t_stack *stack_b)
 {
 	int	moves;
@@ -38,6 +42,7 @@ static int	b_moves(t_stack *current, t_stack *stack_b)
 	return (moves);
 }
 
+//this function sees if the programs can do moves to save from ohter moves
 static int	saving(t_stack *current, t_stack *target, t_stack *a, t_stack *b)
 {
 	int	current_;
