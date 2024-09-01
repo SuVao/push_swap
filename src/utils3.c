@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 14:18:39 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/08/30 16:00:28 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/01 17:49:17 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,18 @@ int	its_par(int nbr)
 		return (0);
 	else
 		return (1);
+}
+
+int	looking_flag(t_stack *a)
+{
+	t_stack	*tmp;
+
+	tmp = a;
+	while (tmp)
+	{
+		if (tmp->error_nbr == 1)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
 }

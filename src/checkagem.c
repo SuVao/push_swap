@@ -6,13 +6,13 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:58:21 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/08/30 16:42:32 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/01 18:02:47 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-/* int	is_sorted(t_stack *a)
+int	is_sorted(t_stack *a)
 {
 	t_stack	*tmp;
 
@@ -24,9 +24,9 @@
 		tmp = tmp->next;
 	}
 	return (1);
-} */
+}
 
-static int	ft_isdigit(int c)
+int	ft_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
@@ -47,13 +47,13 @@ int	nbr_check(char **str)
 				str[i][j] != '+' && str[i][j] != '"')
 			{
 				write(1, "Charater detected!\n", 20);
-				return (0);
+				return (1);
 			}
 			j++;
 		}
 		i++;
 	}
-	return (1);
+	return (0);
 }
 
 int	check_nbr(t_stack *a)
@@ -69,7 +69,7 @@ int	check_nbr(t_stack *a)
 		{
 			if (tmp->nbr == tmp2->nbr)
 			{
-				write(1, "Numero repetido!\n", 18);
+				write(1, "repeated number!\n", 17);
 				return (0);
 			}
 			tmp2 = tmp2->next;

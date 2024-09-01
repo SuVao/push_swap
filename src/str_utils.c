@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   str_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pesilva- <pesilva-@student.42.fr>          +#+  +:+       +#+        */
+/*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:50:39 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/30 15:31:20 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/01 17:50:52 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,19 +98,19 @@ int	the_lower_nbr(int a, int b)
 {
 	t_stack	*tmp1;
 	t_stack	*tmp2;
-	
+
 	tmp1 = stack_a;
 	tmp2 = stack_b;
 	printf("\n");
 	while (tmp1)
 	{
-		printf("%i\tindex:%i\n", tmp1->nbr, tmp1->index);
+		printf("%li\tindex:%i\n", tmp1->nbr, tmp1->index);
 		tmp1 = tmp1->next;
 	}
 	printf("\nA\n\n");
 	while (tmp2)
 	{
-		printf("%i\tindex:%i\n", tmp2->nbr, tmp2->index);
+		printf("%li\tindex:%i\n", tmp2->nbr, tmp2->index);
 		tmp2 = tmp2->next;
 	}
 	printf("\nB\n\n");

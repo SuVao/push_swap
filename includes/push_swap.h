@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/08/30 16:49:58 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/01 17:20:15 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,10 @@ typedef struct s_stack
 {
 	struct s_stack	*next;
 	struct s_stack	*prev;
-	int				nbr;
+	long			nbr;
 	int				index;
+	int				error_nbr;
 }				t_stack;
-
-typedef struct s_data
-{
-	int	moves;
-}	t_data;
 
 /*-------------move fuctions----------------*/
 
@@ -62,13 +58,13 @@ void	sort(t_stack **stack_a, t_stack **stack_b);
 
 void	free_stack(t_stack *stack_a);
 int		check_nbr(t_stack *stack);
-/* int		is_sorted(t_stack *stack); */
+int		is_sorted(t_stack *stack);
 
 /*-------utils--------*/
 
 void	update_index(t_stack *source);
-/* void	print_stack(t_stack *stack_a, t_stack *stack_b); */
-int		ft_atoi(char *n);
+void	print_stack(t_stack *stack_a, t_stack *stack_b);
+long	ft_atoi(char *n, t_stack *node);
 int		nbr_check(char **str);
 
 /*-------stack--------*/
@@ -90,5 +86,8 @@ int		is_smaller(int nbr, t_stack *stack);
 int		calcula_moves(t_stack *current, t_stack *a, t_stack *b);
 int		the_lower_nbr(int a, int b);
 int		its_par(int nbr);
+int		looking_flag(t_stack *a);
+void	error_m(char *str);
+int		ft_isdigit(int c);
 
 #endif
