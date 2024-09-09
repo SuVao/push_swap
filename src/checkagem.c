@@ -6,11 +6,11 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 15:58:21 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/09/01 18:02:47 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/09 18:26:38 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	is_sorted(t_stack *a)
 {
@@ -24,11 +24,6 @@ int	is_sorted(t_stack *a)
 		tmp = tmp->next;
 	}
 	return (1);
-}
-
-int	ft_isdigit(int c)
-{
-	return (c >= '0' && c <= '9');
 }
 
 int	nbr_check(char **str)
@@ -46,7 +41,7 @@ int	nbr_check(char **str)
 			if (!ft_isdigit(str[i][j]) && str[i][j] != '-' && \
 				str[i][j] != '+' && str[i][j] != '"')
 			{
-				write(1, "Charater detected!\n", 20);
+				write(2, "Error\n", 7);
 				return (1);
 			}
 			j++;
@@ -69,7 +64,7 @@ int	check_nbr(t_stack *a)
 		{
 			if (tmp->nbr == tmp2->nbr)
 			{
-				write(1, "repeated number!\n", 17);
+				write(2, "Error\n", 7);
 				return (0);
 			}
 			tmp2 = tmp2->next;

@@ -6,7 +6,7 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/28 11:25:07 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/09/01 17:20:15 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/09 17:30:45 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-/* # include "../libft/libft.h" */
+# include "../libs/Libft/libft.h"
 
 typedef struct s_stack
 {
@@ -63,8 +63,8 @@ int		is_sorted(t_stack *stack);
 /*-------utils--------*/
 
 void	update_index(t_stack *source);
-void	print_stack(t_stack *stack_a, t_stack *stack_b);
-long	ft_atoi(char *n, t_stack *node);
+/* void	print_stack(t_stack *stack_a, t_stack *stack_b); */
+long	ft_atol(char *n, t_stack *node);
 int		nbr_check(char **str);
 
 /*-------stack--------*/
@@ -74,10 +74,9 @@ t_stack	*stackar_split(char **av);
 t_stack	*ft_thelast(t_stack *lst);
 t_stack	*current_bigger(t_stack *stack);
 t_stack	*smaller_node(t_stack *stack);
-void	ft_lstadd_back(t_stack **lst, t_stack *new);
 void	move_to_b(t_stack **stack_a, t_stack **stack_b, t_stack *target);
 void	move_a_to_b(t_stack **stack_a, t_stack **stack_b);
-char	**ft_split(char *s);
+char	**ft_split1(char *s);
 int		stack_size(t_stack *stack);
 int		find_biggest(t_stack *stack);
 int		find_smallest(t_stack *stack);
@@ -87,7 +86,10 @@ int		calcula_moves(t_stack *current, t_stack *a, t_stack *b);
 int		the_lower_nbr(int a, int b);
 int		its_par(int nbr);
 int		looking_flag(t_stack *a);
-void	error_m(char *str);
 int		ft_isdigit(int c);
+t_stack	*stackar_split2(char **av);
+void	free_split(char **av);
+int		check_max(t_stack *a);
+int		valid_string(char *s);
 
 #endif

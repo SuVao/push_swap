@@ -6,11 +6,11 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 14:16:37 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/08/30 16:35:47 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/09 18:28:16 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 //this fuction make the moves
 static void	making(t_stack *stack, t_stack *target, t_stack **a, t_stack **b)
@@ -55,31 +55,6 @@ void	update_index(t_stack *source)
 	}
 }
 
-void	ft_lstadd_back(t_stack **lst, t_stack *new)
-{
-	t_stack	*tmp;
-
-	if (!*lst)
-	{
-		*lst = new;
-		return ;
-	}
-	tmp = *lst;
-	while (tmp->next)
-		tmp = tmp->next;
-	tmp->next = new;
-}
-
-t_stack	*ft_lstlast(t_stack *lst)
-{
-	t_stack	*tmp;
-
-	tmp = lst;
-	while (tmp->next)
-		tmp = tmp->next;
-	return (tmp);
-}
-
 void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 {
 	t_stack	*best;
@@ -106,4 +81,27 @@ void	move_a_to_b(t_stack **stack_a, t_stack **stack_b)
 	}
 	target = target_(best->nbr, *stack_b);
 	making(best, target, stack_a, stack_b);
+}
+
+int	valid_string(char *s)
+{
+	int	count;
+	int	i;
+
+	i = 0;
+	count = 0;
+	while (s[i])
+	{
+		if (ft_isdigit(s[i]))
+			count++;
+		if (ft_isalpha(s[i]))
+		{
+			write(2, "Error\n", 7);
+			return (0);
+		}
+		i++;
+	}
+	if (count > 1)
+		return (1);
+	return (0);
 }

@@ -6,11 +6,11 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 12:46:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/09/01 17:41:06 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/07 18:02:04 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	check_sign(t_stack *a, char c)
 {
@@ -22,7 +22,7 @@ static int	check_sign(t_stack *a, char c)
 	return (0);
 }
 
-long	ft_atoi(char *n, t_stack *node)
+long	ft_atol(char *n, t_stack *node)
 {
 	int		i;
 	int		sign;
@@ -64,7 +64,7 @@ t_stack	*stackar_split(char **av)
 		if (!new_node)
 			return (NULL);
 		new_node->error_nbr = 0;
-		new_node->nbr = ft_atoi(*av, new_node);
+		new_node->nbr = ft_atol(*av, new_node);
 		new_node->index = i++;
 		new_node->next = NULL;
 		new_node->prev = tail;
@@ -77,27 +77,38 @@ t_stack	*stackar_split(char **av)
 	return (head);
 }
 
-void	ft_lstadd_front(t_stack **lst, t_stack *new)
+t_stack	*fullfill(char *av, t_stack *new_node, t_stack *tail)
 {
-	new->next = *lst;
-	*lst = new;
+	new_node->error_nbr = 0;
+	new_node->nbr = ft_atol(av, new_node);
+	new_node->next = NULL;
+	new_node->prev = tail;
+	return (new_node);
 }
 
-t_stack	*ft_thelast(t_stack *lst)
+t_stack	*stackar_split2(char **av)
 {
-	t_stack	*last;
+	t_stack	*head;
+	t_stack	*new_node;
+	t_stack	*tail;
+	int		i;
 
-	last = NULL;
-	if (!lst)
-		return (NULL);
-	while (lst)
+	head = NULL;
+	tail = NULL;
+	i = 0;
+	while (*av)
 	{
-		if (lst->next == NULL)
-		{
-			last = lst;
-			return (last);
-		}
-		lst = lst->next;
+		new_node = malloc(sizeof(t_stack));
+		if (!new_node)
+			return (NULL);
+		new_node = fullfill(*av, new_node, tail);
+		new_node->index = i++;
+		if (!head)
+			head = new_node;
+		if (tail)
+			tail->next = new_node;
+		tail = new_node;
+		av++;
 	}
-	return (last);
+	return (head);
 }

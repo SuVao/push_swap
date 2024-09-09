@@ -6,11 +6,11 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/17 14:09:02 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/08/30 16:50:56 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/06 16:07:06 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 //this function sees if it is odd or pair to decide if the number of the middle
 int	half_stack_small(t_stack *current, t_stack *stack)

@@ -1,34 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_4.c                                           :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/04 16:23:38 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/09/06 16:07:48 by pesilva-         ###   ########.fr       */
+/*   Created: 2024/04/13 13:30:27 by pesilva-          #+#    #+#             */
+/*   Updated: 2024/04/15 17:46:20 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void	sort_4(t_stack **stack_a, t_stack **stack_b)
+void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	int	rep;
+	unsigned int	i;
 
-	rep = 3;
-	pb(stack_a, stack_b);
-	sort_3(stack_a);
-	while (stack_size(*stack_b) > 0)
+	i = 0;
+	while (s[i])
 	{
-		if (ft_thelast(*stack_a)->nbr > ((*stack_b)->nbr) && rep > 0)
-		{
-			rra(stack_a);
-			rep--;
-		}
-		else
-			pa(stack_a, stack_b);
+		f(i, &s[i]);
+		i++;
 	}
-	while (rep-- > 0)
-		rra(stack_a);
 }
+
+// void print_index(unsigned int i, char *c)
+// {
+// 	printf("Index: %d, Char: %c\n", i, *c);
+// }
+
+// int main()
+// {
+// 	char	str[] = "ola caralho";
+
+// 	ft_striteri(str, print_index);
+// 	return (0);
+// }

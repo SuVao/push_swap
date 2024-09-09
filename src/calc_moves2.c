@@ -6,11 +6,11 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/28 14:14:23 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/08/30 16:50:32 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/06 16:07:27 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 int	is_smaller(int nbr, t_stack *stack)
 {

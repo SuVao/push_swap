@@ -1,34 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_4.c                                           :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/04 16:23:38 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/09/06 16:07:48 by pesilva-         ###   ########.fr       */
+/*   Created: 2024/04/13 15:17:18 by pesilva-          #+#    #+#             */
+/*   Updated: 2024/04/13 15:59:34 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void	sort_4(t_stack **stack_a, t_stack **stack_b)
+int	ft_lstsize(t_list *lst)
 {
-	int	rep;
+	int		i;
 
-	rep = 3;
-	pb(stack_a, stack_b);
-	sort_3(stack_a);
-	while (stack_size(*stack_b) > 0)
+	i = 0;
+	while (lst)
 	{
-		if (ft_thelast(*stack_a)->nbr > ((*stack_b)->nbr) && rep > 0)
-		{
-			rra(stack_a);
-			rep--;
-		}
-		else
-			pa(stack_a, stack_b);
+		lst = lst->next;
+		i++;
 	}
-	while (rep-- > 0)
-		rra(stack_a);
+	return (i);
 }
+
+// int main()
+// {
+// 	t_list *lst;
+// 	t_list *lst2;
+// 	int		i;
+
+// 	lst2 = ft_lstnew("ola");
+// 	lst = ft_lstnew("ola");
+
+// 	i = ft_lstsize(lst) + ft_lstsize(lst2);
+// 	printf("i: %d\n", i);
+// 	return (0);
+// }

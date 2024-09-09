@@ -6,11 +6,11 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 17:02:45 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/30 13:07:07 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/06 16:08:01 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	rev_rotate(t_stack **stack)
 {

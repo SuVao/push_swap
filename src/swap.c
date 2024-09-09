@@ -6,11 +6,11 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/31 16:36:34 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/06/28 13:26:53 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/06 16:07:09 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static void	swap(t_stack *stack)
 {

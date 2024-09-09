@@ -6,11 +6,11 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/06 11:50:39 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/09/01 17:50:52 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/07 18:16:27 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 static int	is_blanc(char c)
 {
@@ -57,7 +57,7 @@ static char	*aloc(char *s)
 	return (word);
 }
 
-char	**ft_split(char *s)
+char	**ft_split1(char *s)
 {
 	int		i;
 	char	**mat;

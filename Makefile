@@ -6,17 +6,19 @@
 #    By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/08 15:15:44 by pesilva-          #+#    #+#              #
-#    Updated: 2024/08/30 14:38:26 by pesilva-         ###   ########.fr        #
+#    Updated: 2024/09/07 18:14:04 by pesilva-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
+NAME_BONUS = checker
 
 CC = cc
 RM = rm -f
 FLAGS = -Wall -Werror -Wextra -g
 INCLUDES = ./includes/
 SRC_DIR = ./src/
+LIBFT = ./libs/Libft/
 
 SRC = 	main.c \
 		ft_free.c \
@@ -36,25 +38,37 @@ SRC = 	main.c \
 		utils2.c \
 		utils3.c \
 
-OBJ = ${SRC:.c=.o}
+SRC_BONUS = checker.c
+
+HEADER = -Iincludes
+
 
 SRC := $(addprefix $(SRC_DIR), $(SRC))
-OBJ := $(SRC:.c=.o)
+
+OBJ = ${SRC:.c=.o}
 
 %.o: %.c
-	${CC} ${FLAGS} -I${INCLUDES} -c $< -o $@
+	${CC} ${FLAGS} ${HEADER} -c $< -o $@
 
-${NAME}: ${OBJ}
-	${CC} ${FLAGS} ${OBJ} -o ${NAME}
+${NAME}: ${OBJ} $(LIBFT)
+	@echo "Compiling LIBFT"
+	@make re -C ${LIBFT}
+	@${CC} ${FLAGS} ${OBJ} -L${LIBFT} -lft -o ${NAME}
 
 all: ${NAME}
 
+$(LIBFT):
+	@make -C $(LIBFT_DIR)
+
+bonus: ${NAME_BONUS}
+
 clean:
-	${RM} ${OBJ}
+	${RM} ${OBJ} ${OBJ_BONUS}
+	@make clean -C $(LIBFT)
 
 fclean: clean
-	${RM} ${NAME}
+	${RM} ${NAME} ${NAME_BONUS}
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus

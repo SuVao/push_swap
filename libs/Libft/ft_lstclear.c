@@ -1,34 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_4.c                                           :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/04 16:23:38 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/09/06 16:07:48 by pesilva-         ###   ########.fr       */
+/*   Created: 2024/04/17 12:24:12 by pesilva-          #+#    #+#             */
+/*   Updated: 2024/04/17 12:28:05 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void	sort_4(t_stack **stack_a, t_stack **stack_b)
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	int	rep;
+	t_list	*tmp;
 
-	rep = 3;
-	pb(stack_a, stack_b);
-	sort_3(stack_a);
-	while (stack_size(*stack_b) > 0)
+	if (!lst || !del)
+		return ;
+	while (*lst)
 	{
-		if (ft_thelast(*stack_a)->nbr > ((*stack_b)->nbr) && rep > 0)
-		{
-			rra(stack_a);
-			rep--;
-		}
-		else
-			pa(stack_a, stack_b);
+		tmp = (*lst)->next;
+		ft_lstdelone(*lst, del);
+		*lst = tmp;
 	}
-	while (rep-- > 0)
-		rra(stack_a);
 }
+
+// int main()
+// {
+// 	t_list *lst;
+// 	void (*del)(void *);
+// 	del = &free;
+// 	ft_lstclear(&lst, del);
+// 	return 0;
+// }

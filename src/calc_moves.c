@@ -6,11 +6,11 @@
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/24 17:29:44 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/08/30 16:52:21 by pesilva-         ###   ########.fr       */
+/*   Updated: 2024/09/06 16:07:25 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "../includes/push_swap.h"
 
 //this funstion makes the calculation how many moves need to
 //put in the right position on a stack

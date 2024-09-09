@@ -1,34 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_4.c                                           :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/04 16:23:38 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/09/06 16:07:48 by pesilva-         ###   ########.fr       */
+/*   Created: 2024/04/13 12:43:01 by pesilva-          #+#    #+#             */
+/*   Updated: 2024/04/21 21:59:27 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void	sort_4(t_stack **stack_a, t_stack **stack_b)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int	rep;
+	long	nbr;
 
-	rep = 3;
-	pb(stack_a, stack_b);
-	sort_3(stack_a);
-	while (stack_size(*stack_b) > 0)
+	nbr = n;
+	if (nbr < 0)
 	{
-		if (ft_thelast(*stack_a)->nbr > ((*stack_b)->nbr) && rep > 0)
-		{
-			rra(stack_a);
-			rep--;
-		}
-		else
-			pa(stack_a, stack_b);
+		ft_putchar_fd('-', fd);
+		nbr = -nbr;
 	}
-	while (rep-- > 0)
-		rra(stack_a);
+	if (nbr >= 10)
+	{
+		ft_putnbr_fd(nbr / 10, fd);
+		ft_putchar_fd((nbr % 10) + '0', fd);
+	}
+	else
+		ft_putchar_fd(nbr + '0', fd);
 }
+
+// int	main(void)
+// {
+// 	ft_putnbr_fd(2147483648, 1);
+// 	printf("nb: %d\n", 2147483648);
+// 	return (0);
+// }

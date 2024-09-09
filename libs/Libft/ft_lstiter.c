@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_4.c                                           :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/04 16:23:38 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/09/06 16:07:48 by pesilva-         ###   ########.fr       */
+/*   Created: 2024/04/17 12:31:12 by pesilva-          #+#    #+#             */
+/*   Updated: 2024/04/17 12:32:22 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void	sort_4(t_stack **stack_a, t_stack **stack_b)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int	rep;
-
-	rep = 3;
-	pb(stack_a, stack_b);
-	sort_3(stack_a);
-	while (stack_size(*stack_b) > 0)
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		if (ft_thelast(*stack_a)->nbr > ((*stack_b)->nbr) && rep > 0)
-		{
-			rra(stack_a);
-			rep--;
-		}
-		else
-			pa(stack_a, stack_b);
+		f(lst->content);
+		lst = lst->next;
 	}
-	while (rep-- > 0)
-		rra(stack_a);
 }

@@ -1,38 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_front.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pesilva- <pesilva-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/06/07 14:00:18 by pesilva-          #+#    #+#             */
-/*   Updated: 2024/09/07 18:17:02 by pesilva-         ###   ########.fr       */
+/*   Created: 2024/04/13 13:53:33 by pesilva-          #+#    #+#             */
+/*   Updated: 2024/04/17 15:34:37 by pesilva-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "libft.h"
 
-void	free_stack(t_stack *stack_a)
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	t_stack	*tmp;
-
-	while (stack_a)
-	{
-		tmp = stack_a;
-		stack_a = stack_a->next;
-		free (tmp);
-	}
+	new->next = *lst;
+	*lst = new;
 }
 
-void	free_split(char **av)
-{
-	int	i;
+// int	main(void)
+// {
+// 	t_list	*new;
+// 	t_list	*lst;
 
-	i = 0;
-	while (av[i])
-	{
-		free(av[i]);
-		i++;
-	}
-	free(av);
-}
+// 	new = ft_lstnew("Hello, World!");
+// 	lst = ft_lstnew("Goodbye, World!");
+// 	ft_lstadd_front(&lst, new);
+// 	printf("lst->content: %s\n", (char *)lst->content);
+// 	printf("lst->next->content: %s\n", (char *)lst->next->content);
+// 	return (0);
+// }
